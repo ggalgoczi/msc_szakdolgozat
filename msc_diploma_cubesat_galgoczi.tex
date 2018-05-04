@@ -189,6 +189,17 @@ In order to understand how the $\gamma$ photons -- that the CubeSat is meant to 
 
 The Geometry... XXX TRacking (Geant4) 
 
+
+The cross section for photoeffect is far the largest by far for low energy gamma photons.
+The ionized nuclei and the secondary electrons generates scintillation.
+
+\includegraphics[width=130.0mm]{images/secondary.png}
+
+
+\includegraphics[width=130.0mm]{images/secondary2.png}
+
+Also the nuclei that is ionized by the gamma produces photons.
+ 
 \subsection{Fine tuning the optical parameters}
 
 Most relevant parameters:
@@ -218,22 +229,78 @@ Optical parameters of the materials and surfaces:
 \item The detection efficiency of the SiPM detectors
 \end{itemize}
 
+\subsection{1 channel setup}
+
+\subsection{2 channel setup}
+
+\includegraphics[width=40.0mm]{images/2channel.png}
+
+
+\subsection{The satellite}
+
+\includegraphics[width=100.0mm]{images/satellite.png}
+
+\pagebreak
+
 \section{Results of the simulation}
 \subsection{Comparison of the results of the simulation with experiments}
 
-The cross section for photoeffect is far the largest by far for low energy gamma photons.
-The ionized nuclei and the secondary electrons generates scintillation.
+%ADC / energy calibration from measurement 20170829 illetve az egy chanellel: grb\_status3 
 
-ADC / energy calibration from measurement 20170829
+1 channel read out:
 
-illetve az egy chanellel: grb\_status3 
+\includegraphics[width=100.0mm]{images/irradiation.png}
 
-\includegraphics[width=130.0mm]{images/secondary.png}
+\includegraphics[width=40.0mm]{images/positions.png}
+
+The experimental results:
+
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c| } 
+ \hline
+  Pos. of source & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\ 
+  Pos. of main peak & 0.642 & 0.664 & & 70.7 & 0.743 & & 0.598 & &  \\ 
+ \hline
+\end{tabular}
+\end{center}
+
+The parameters set in the simulation: reflectivity: 0.995 and absoprtion length of
+40 cm:
+
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c| } 
+ \hline
+  Pos. of source & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\ 
+  Pos. of main peak & 0.3389 & 0.3256 & 0.3355 & 0.3521 & 0.3555 & 0.3522 & 0.2060 & 1 & 0.203  \\ 
+ \hline
+\end{tabular}
+\end{center}
 
 
-\includegraphics[width=130.0mm]{images/secondary2.png}
+The parameters set in the simulation: reflectivity: 0.995 and absoprtion length of 50 cm
 
-Also the nuclei that is ionized by the gamma produces photons.
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c| } 
+ \hline
+ Pos. of source & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\ 
+ Pos. of main peak & 0.4013 & 0.3917 & 0.3981 & 0.4045 & 0.4172 & 0.4140 & 0.2580 & 1 & 0.2739\\ 
+ \hline
+\end{tabular}
+\end{center}
+
+Reflectivity of 0.997 and abs. length of 60 cm
+
+\begin{center}
+\begin{tabular}{ |c|c|c|c|c|c|c|c|c|c| } 
+ \hline
+  Pos. of source & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\ 
+  Pos. of main peak & 0.4588 & 0.4587 & 0.4697 & 0.4734 & 0.4700 & 0.4737 & 0.3388 & 1 & 0.3365  \\ 
+ \hline
+\end{tabular}
+\end{center}
+
+
+
 
 \subsection{X-ray fluorescence}
 Histogram without fluorescence, turned out in LXeEMPhysics line 140-159
