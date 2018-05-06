@@ -98,22 +98,13 @@
 Eötvös Loránd Tudományegyetem, Természettudományi Kar\\
 WIGNER Fizikai Kutatóközpont - MTA\\
 \vspace{1.5cm}
-\begin{figure}[H]
-\centering
-\begin{tabular}{ >{\centering\arraybackslash}m{2in}  >{\centering\arraybackslash}m{2.5in}  }
 
-\includegraphics[width=53.0mm]{images/regard.jpg}
-\end{tabular}
-\end{figure}
 
 \begin{figure}[H]
 \centering
-\begin{tabular}{ >{\centering\arraybackslash}m{2in}  >{\centering\arraybackslash}m{2.5in}  }
 
-\includegraphics[width=45.0mm]{images/elte.png} \parbox{0pt}{\rule{0pt}{2ex+\baselineskip}} &
-\hspace{0.2 cm}
-\includegraphics[width=40.0mm]{images/wigner.png}
-\end{tabular}
+
+\includegraphics[width=80.0mm]{images/elte.png}  
 \end{figure}
 
 
@@ -131,19 +122,19 @@ WIGNER Fizikai Kutatóközpont - MTA\\
 
 
 
-\vspace{0.1 cm}
+\vspace{4 cm}
 \end{center}
 
 \begin{center}
 \begin{tabular}{ll}
 \centerline{ Témavezetők: } \\
-\centerline{ Conseil Européen pour la Recherche Nucléaire (CERN)}
+\centerline{ Norbert Werner (ELTE)}
 \end{tabular}
 \end{center}
 \begin{center}
 
 \vspace{2.5 cm}
-\large \textbf {2016}\\
+\large \textbf {2018}\\
 \end{center}
 \end{titlepage}
 %\doublespacing
@@ -231,16 +222,22 @@ Optical parameters of the materials and surfaces:
 
 \subsection{1 channel setup}
 
-\subsection{2 channel setup}
+\includegraphics[width=150.0mm]{images/irradiation.png}
 
-\includegraphics[width=100.0mm]{images/2channel.png}
+\subsection{2 channel read out setup}
+
+\begin{figure}[H]
+\includegraphics[width=160.0mm]{images/2channel.png}
+\caption{Simulation of 100 $\gamma$s emitted from the source. The blue lines represent the track of the $\gamma$s and the green lines represent the track of the optical photons created by scintillation. Only the photons that were detected are drawn.}
+\end{figure}
+
 
 
 \subsection{The satellite}
 
 \includegraphics[width=100.0mm]{images/satellite.png}
 
-
+\begin{table}
 \begin{center}
 \begin{tabular}{ |c|c|c|c|} 
  \hline
@@ -264,6 +261,10 @@ Payload	& 	1100	& 	As you wish	& 	100\\
  \hline
 \end{tabular}
 \end{center}
+\caption{The mass ratio of materials that are used for the satellite}
+\end{table}
+
+\begin{table}
 
 \begin{center}
 \begin{tabular}{ |c|c|c|c|c|c|c|c|c|c|c|c|c|} 
@@ -280,11 +281,10 @@ Glass Borosilicate &	Si &	42.10 &	O &	54.80 &	B &	3.10 & & & & & &\\\hline
 FR4 Glass-Epoxy &	Si &	23.39 &	O &	36.02 &	C &	37.04 &	H &	3.55 & & & &\\\hline		
 Brass Generic &	Cu &	85.00 &	Zn &	15.00 & & & & & & & &\\\hline						
 Solar Panel &	Ge &	38.00 &	Si &	24.00 &	O &	20.00 &	C &	13.00 &	H &	4.00 &	B &	1.00\\\hline
-
-
- \hline
 \end{tabular}
 \end{center}
+\caption{The chemical composition of materials that are used for the satellite}
+\end{table}
 
 \pagebreak
 
@@ -295,9 +295,7 @@ Solar Panel &	Ge &	38.00 &	Si &	24.00 &	O &	20.00 &	C &	13.00 &	H &	4.00 &	B &	1
 
 1 channel read out:
 
-\includegraphics[width=100.0mm]{images/irradiation.png}
-
-\includegraphics[width=40.0mm]{images/positions.png}
+\includegraphics[width=80.0mm]{images/positions.png}
 
 The experimental results:
 
@@ -353,11 +351,25 @@ Histogram without fluorescence, turned out in LXeEMPhysics line 140-159
 
 Histogram with flo
 
-\subsection{Simulation of background in space}
+\subsection{Simulation of the cosmic background in space}
 
 
 \subsection{Optimalization of the scintillator detectors}
+
+\pagebreak
 \section{Conclusion}
+
+In order to simulate how the XXX CubeSat would interact with the cosmic background and how sensitive it would be to the GRBs that it is designed to investigate a Geant4 simulation was built.
+
+As the first step, the experimental setup that was used to test the CsI(Tl) scintillator -- the particle detector of the satellite -- was implemented in Geant4. The optical parameters of the simulation were fine tuned by comparing the light yield of the MPPCs that was used to read out the scintillator.
+
+Secondly, the CAD model of the satellite was exported to Geant4. The body of the satellite was divided into 8 modules. The chemical components of these modules were included in the simulation. The scintillator was placed on the side of the satellite.
+
+Thirdly, the effect of cosmic radiation was invastigated by obtaining the energy spectra of cosmic protons and electrons at the XXX altitude of XXX. The satellite was radiated by these particles in Geant4 from all directions to investigate how large the signal of these particles would be. This needs to be minimalized as it versenyez with the signal of gamma particles from GRBs.
+
+Finally, the $\gamma$ absorption of the satellite was invastigated.
+
+\pagebreak
 
 \section{Acknowledgment}
 
