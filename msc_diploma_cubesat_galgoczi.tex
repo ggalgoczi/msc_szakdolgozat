@@ -335,8 +335,11 @@ Optical parameters of the materials and surfaces:
 
 \includegraphics[width=150.0mm]{images/irradiation.png}
 
-The $\gamma$ source that was used to test the experimental setup was choosen to be an $^{241}Am$. The reason for this is that the peak of energy spectrum of the $\gamma$ photons from GRBs is at 50 keV which is very close to the peak of the $^{241}Am$ that is 59.5 keV. The activity of the source at the time of the experiment was 471 kBq. The source was collimated to a beam that hit the surface of the scintillator on a circle with a radius of 10 mm. The distance of the source from the scintillator was 13.5 mm. Therefore the number of $\gamma$s that hit the scintillator, the Al and Pb sheets above it was:
-$$471 kBq \cdot \frac{s}{s}$$
+The $\gamma$ source that was used to test the experimental setup was choosen to be an $^{241}Am$. The reason for this is that the peak of energy spectrum of the $\gamma$ photons from GRBs is at 50 keV which is very close to the peak of the $^{241}Am$ that is 59.5 keV. The activity of the source at the time of the experiment was 471 kBq. The source was collimated to a beam that hit the surface of the scintillator on a circle with a radius of 10 mm. The distance of the source from the scintillator was 13.5 mm. Therefore the solid angle of the part of the whole sphere where $\gamma$s could be detected was 
+$$\Theta = 2 \pi (1-cos(\theta)) = 1.234 sr$$
+
+ Therefore the number of $\gamma$s that hit the scintillator, the Al and Pb sheets above it was:
+$$A = \frac{1.234}{4 \pi} \cdot 471 kBq = 46.25 kBq$$
 
 
 
@@ -349,13 +352,13 @@ Most relevant parameters:
 \item scintillation yield
 \end{itemize}
 
-
+\pagebreak
 
 \subsection{2 channel read out setup}
 
 \begin{figure}
 \centering
-\includegraphics[width=130.0mm]{images/2channelsetup.png}
+\includegraphics[width=130.0mm]{images/2channelsetup.png}[H!]
 \caption{The MPPCs for the 2 channel readout are positioned symmetrically from the center of the scintillator}
 \end{figure}
 
@@ -434,6 +437,8 @@ Solar Panel &	Ge &	38.00 &	Si &	24.00 &	O &	20.00 &	C &	13.00 &	H &	4.00 &	B &	1
 
 \section{Results of the simulation}
 \subsection{Comparison of the results of the simulation with experiments}
+\subsubsection{Calibration of the position dependence}
+
 
 %ADC / energy calibration from measurement 20170829 illetve az egy chanellel: grb\_status3 
 
@@ -491,7 +496,13 @@ Reflectivity of 0.997 and abs. length of 60 cm
 \end{tabular}
 \end{center}
 
+\pagebreak
 
+\subsubsection{Calibration of photon yield}
+
+In the simulation 3.6 million $\gamma$s were simulated. The measurement took 240 s. Therefore the number of photons emitted by the source was $\sim$ 11.0 million. The amplitude of the peaks in the energy spectrum of signal obtained by the MPPC depends mostly on three parameters. The absorption length of the scintillation light in the scintillator, the reflectivity of the surface and the scintillation photon yield of the scintillator. In order to obtain the histogram that we would measure by the MPPC, the histogram obtained by the simulation had to be scaled up both in amplitude and energy. (The introduction of an offset was not needed as the origin point of the histogram obtained in the measurements was shifted to zero energy.)
+
+ 
 
 
 \subsection{X-ray fluorescence}
