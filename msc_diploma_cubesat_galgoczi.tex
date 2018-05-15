@@ -180,6 +180,12 @@ In some cases of LGRBs there was observed supernova component in the lightcurve 
 
 Observations suggest that SGRBs arise from old astrophysical populations. The beaming angles for SGRBs jets seems to be from $\sim$5 to > 25 [5, 29, 30]. The model that they originate in the merger of two NS has been recently confirmed by the detection of the gravitational wave (GW) signal by LIGO / Virgo collaboration 1, 2. This GW signal was accompanied with a SGRB detected by the Fermi /Gamma-ray Burst Monitor (GBM) and INTEGRAL instruments followed by the observation of the GRB’s afterglow and its host galaxy [31, 32, 33]. In case of SGRBs a kilonova/macronova can be observed. It emits electromagnetic radiation due to the radioactive decay of heavy r-process nuclei that are produced and ejected almost isotropically during the merger process [34].
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=130.0mm]{images/grb_spectra.png}
+\caption{The band function of GRB 9900123 $\cite{grb_spectra}$}
+\end{figure}
+
 \subsection{Open questions on gamma-ray bursts}
 
 In spite of great theoretical and observational successes over the last four decades, many key questions remain about the physics of GRBs. For a detailed review see [3, 4, 6, 35]. Some of these key questions are following.
@@ -372,6 +378,8 @@ Most relevant parameters:
 
 \subsection{The satellite}
 
+
+
 \begin{figure}[htbp]
  \centering % \begin{center}/\end{center} takes some additional vertical space
  \includegraphics[width=.3\textwidth,origin=c,angle=0]{images/satellite.png}
@@ -436,7 +444,18 @@ Solar Panel &	Ge &	38.00 &	Si &	24.00 &	O &	20.00 &	C &	13.00 &	H &	4.00 &	B &	1
 \pagebreak
 
 \section{Results of the simulation}
+
+
 \subsection{Comparison of the results of the simulation with experiments}
+
+\subsubsection{X-ray fluorescence}
+
+
+Histogram without fluorescence, turned out in LXeEMPhysics line 140-159
+
+Histogram with flo
+
+
 \subsubsection{Calibration of the position dependence}
 
 
@@ -502,18 +521,31 @@ Reflectivity of 0.997 and abs. length of 60 cm
 
 In the simulation 3.6 million $\gamma$s were simulated. The measurement took 240 s. Therefore the number of photons emitted by the source was $\sim$ 11.0 million. The amplitude of the peaks in the energy spectrum of signal obtained by the MPPC depends mostly on three parameters. The absorption length of the scintillation light in the scintillator, the reflectivity of the surface and the scintillation photon yield of the scintillator. In order to obtain the histogram that we would measure by the MPPC, the histogram obtained by the simulation had to be scaled up both in amplitude and energy. (The introduction of an offset was not needed as the origin point of the histogram obtained in the measurements was shifted to zero energy.)
 
- 
+\begin{figure}
+\includegraphics[width=150.0mm]{images/calibration_photon_yield.png}[H!]
+\caption{The satellite radiated by a pencil beam of 10.000 $\gamma$ particles. The scattered $\gamma$s induce signal in the scintillator}
+\end{figure}
+
+The energy bins had to be scaled up by a factor of 2.4 to match the experimental results. The amplitude had to be scaled up by a factor of 26.2.
+
+\pagebreak
 
 
-\subsection{X-ray fluorescence}
-Histogram without fluorescence, turned out in LXeEMPhysics line 140-159
-
-Histogram with flo
 
 \subsection{Simulation of the cosmic background in space}
 
 In order to include the resonances in the cross section of the hadron-hadron interactions, additional physics models are needed to be included in the simulation. The signal induced by these resonances might affect the measurement of the protons.
-\subsection{Optimalization of the scintillator detectors}
+
+Protons
+'Apogee: 500.0 km'
+'Perigee: 500.0 km'
+'Inclination: 89.0 deg'
+
+Electrons
+'Trapped electron model: AE-8 MIN'
+%'Energy','MeV','Energy'
+%'IFlux','cm^-2 s^-1','Integral Flux'
+%'DFlux','cm^-2 s^-1 MeV^-1','Differential Flux'
 
 \pagebreak
 \section{Conclusion}
@@ -542,6 +574,12 @@ Finally, the $\gamma$ absorption of the satellite was invastigated.
 \bibitem{tgemadv} C. Shalem, R. Chechik, et al.,\\
 Advances in Thick GEM-like gaseous electron multipliers—Part I: atmospheric pressure operation,\\
 Nuclear Instruments and Methods in Physics Research A, vol. 558, page 475-489, 2006
+
+\bibitem{grb_spectra} Gamma-Ray Bursts and Fast Transients
+Multi-wavelength Observations and Multi-messenger Signals,\\
+R. Willingale, P. Mészáros
+%https://link.springer.com/content/pdf/10.1007/s11214-017-0366-4.pdf
+
 
 \end{thebibliography}
 
