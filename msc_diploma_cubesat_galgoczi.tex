@@ -160,6 +160,17 @@ The main aim of the paper, therefore this thesis is to optimize the scintillator
 
 
  The second aim is to understand how the material of the CubeSat would affect the gamma photons that the satellite is meant to detect.
+ 
+We are designing a fleet of nanosatellites to perform accurate position determinations
+of short-duration gamma-ray bursts by measuring arrival time differences.
+To achieve sufficient photon statistics to measure the arrival times
+precisely under the severe limitations of size, mass, and power consumption,
+we propose the use of a large-area CsI scintillator that has high light output
+and the use of a small-sized multipixel photon counter (MPPC) that has low
+power consumption. We plan to use one of the latest-model MPPCs provided
+by Hamamatsu Photonics, which has an active area of 6  6 mm2. We have compared the performance of two scintillators of different sizes (150 75  5 mm3 and 100  75  5 mm3); the bigger one is the maximum size that can be mounted on a three-unit satellite, according to CubeSat standards.
+We have found that the two scintillators have similar light yields and each has an energy threshold of $\sim$10 keV at 25C. We have also examined the position dependence of the light yield by using radiation from 241Am (59.5 keV) source, and have confirmed that uniformity was improved by using two MPPCs for signal readout. 
+ 
 
 \subsection{Gamma-ray bursts}
 
@@ -310,19 +321,6 @@ It is challenging to readout the scintillation photons for such geometrically la
 
 Figure 23 shows the latest result of the study of this technique by irradiating 241Am radioisotope. Black and red data show the result by the single channel and 2-channel coincidence readout the single channel readout, respectively. As one can see obviously, the final light yield corresponding to the 59.5 keV gamma-ray photo absorption peak increases by almost 50 \% for the 2-channel readout. By scaling  the 2-channel readout result to the single channel readout for the 59.5 keV peak as shown by the blue curve, we found that the energy resolution improved thanks to the improvement of the uniformity of the position dependence of the light yield. Finally, we confirmed that the lower energy threshold for both readout technique achieved to be about 10 keV. Further improvement of the uniformity and/or lower energy threshold could be possible by optimizing the install location of the MPPC device.
 
-
-\subsection{The simulated setup}
-
-
-HAMAMATSU S13360-6050CS
-
-datasheet of QE:
-%http://www.hamamatsu.com/resources/pdf/ssd/s13360_series_kapd1052e.pdf
-
-esr foil:
-Please check "ESR from 3M" company. e.g.,
-%http://multimedia.3m.com/mws/media/466120O/esr.pdf
-
 \subsection{The Geant4 platform}
 
 Geant4 \cite{geant1, geant2, geant3} (for GEometry ANd Tracking) is a platform for "the simulation of the passage of particles through matter," using Monte Carlo methods. It is the successor of the GEANT series of software toolkits developed by CERN, and the first to use object oriented programming (in C++). Its development, maintenance and user support are taken care by the international Geant4 Collaboration. Application areas include high energy physics and nuclear experiments, medical, accelerator and space physics studies. The software is used by a number of research projects around the world.
@@ -350,10 +348,58 @@ Since release 10.0, Geant4 implements multithreading, making use of thread-local
 
 Because of its general purpose nature, Geant4 is well suited for development of computational tools for analysing interactions of particle with matter in many areas. These include:
 
-Space applications where it is used to study interactions between the natural space radiation environment and space hardware or astronauts;
-Medical applications where interactions of radiations used for treatment are simulated.
-Radiation effects in microelectronics where ionizing effects on semiconductor devices are modeled.
-Nuclear physics
+Space applications where it is used to study interactions between the natural space radiation environment and space hardware or astronauts; Medical applications where interactions of radiations used for treatment are simulated. Radiation effects in microelectronics where ionizing effects on semiconductor devices are modeled.
+
+\subsection{The experimental setup}
+
+
+We are designing a fleet of nanosatellites to perform accurate position determinations
+of short-duration gamma-ray bursts by measuring arrival time differences.
+To achieve sufficient photon statistics to measure the arrival times
+precisely under the severe limitations of size, mass, and power consumption,
+we propose the use of a large-area CsI scintillator that has high light output
+and the use of a small-sized multipixel photon counter (MPPC) that has low
+power consumption. We plan to use one of the latest-model MPPCs provided
+by Hamamatsu Photonics, which has an active area of 6  6 mm2. We have compared the performance of two scintillators of different sizes (150  75  5 mm3 and 100  75  5 mm3); the bigger one is the maximum size that can be mounted on a three-unit satellite, according to CubeSat standards.
+We have found that the two scintillators have similar light yields and each has an energy threshold of $\sim$10 keV at 25C. We have also examined the position dependence of the light yield by using radiation from 241Am (59.5 keV) source, and have confirmed that uniformity was improved by using two MPPCs for signal readout. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=130.0mm]{images/spectracsitl.png}
+\caption{The reflectivity $\cite{scinti}$ of the ESR tape that was used to wrap the scintillator in order to increase the light yield. This data was included in the simulation.}
+\end{figure}
+
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=130.0mm]{images/qe.png}
+\caption{The reflectivity $\cite{esr}$ of the ESR tape that was used to wrap the scintillator in order to increase the light yield. This data was included in the simulation.}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=130.0mm]{images/reflectivity.png}
+\caption{The photon detection efficiency $\cite{qe}$ of the MPPCs used for the readout of the scintillators. This data was included in the simulation.}
+\end{figure}
+
+
+HAMAMATSU S13360-6050CS
+
+ESR foil
+
+QE \cite{qe} of the MPPC
+
+
+datasheet of QE:
+%http://www.hamamatsu.com/resources/pdf/ssd/s13360_series_kapd1052e.pdf
+
+esr \cite{esr} foil:
+Please check "ESR from 3M" company. e.g.,
+%http://multimedia.3m.com/mws/media/466120O/esr.pdf
+
+
 
 \subsection{Simulation}
 
@@ -448,6 +494,9 @@ Most relevant parameters:
 \caption{The MPPCs for the 2 channel readout are positioned symmetrically from the center of the scintillator}
 \end{figure}
 
+\pagebreak
+
+
 \includegraphics[width=130.0mm]{images/2channelelectronics.png}
 
 \begin{figure}[H]
@@ -456,9 +505,11 @@ Most relevant parameters:
 \caption{Simulation of 100 $\gamma$s emitted from the source. The blue lines represent the track of the $\gamma$s and the green lines represent the track of the optical photons created by scintillation. Only the photons that were detected are drawn.}
 \end{figure}
 
+\pagebreak
+
 \subsection{The satellite}
 
-
+The direction of GRBs is isotropic in the sky as they are extragalactic objects. As the positioning of the scintillators is not decided yet it is important to understand which configuration would be the best for detecting as many GRBs as possible. Therefore it is vital to understand how the material of the satellite itself absorbs $\gamma$s. The satellite consists of several modules with specific shapes and material contents. Therefore building up the whole geometry and material composition was not possible in Geant4, thus the model of the satellite had to be  imported into Geant4.
 
 \begin{figure}[htbp]
  \centering % \begin{center}/\end{center} takes some additional vertical space
@@ -467,8 +518,10 @@ Most relevant parameters:
  \includegraphics[width=.5\textwidth,origin=c,angle=90]{images/cad_sat.png} 
  % "\includegraphics" from the "graphicx" permits to crop (trim+clip)
  % and rotate (angle) and image (and much more)
- \caption{\label{fig:i} The scintillator on the left and the box holding the setup on the right}
+ \caption{\label{fig:i} The CAD model of the satellite (on the right) and the view of the imported model in Geant (on the left)}
  \end{figure}
+
+Importing predefined CAD models into GEANT4 is not always possible or requires intermediate file format conversion to Geometry Description Markup Language (GDML) using commercial or third party software. CADMesh \cite{cadmesh} is a direct CAD model import interface for GEANT4 leveraging ASSIMP \cite{assimp} for reading the CAD files. In this work the CAD model of the satellite was exported to STL files. These files were imported by the CADMesh software to Geant4. The tesselation was done by the TETGEN \cite{tetgen} software.
 
 \begin{figure}
 \includegraphics[width=150.0mm]{images/satellite_rad.png}
@@ -528,6 +581,9 @@ Solar Panel &	Ge &	38.00 &	Si &	24.00 &	O &	20.00 &	C &	13.00 &	H &	4.00 &	B &	1
 
 \subsection{Comparison of the results of the simulation with experiments}
 
+\pagebreak
+
+
 \subsubsection{X-ray fluorescence}
 
 
@@ -540,7 +596,6 @@ Histogram with flo
 \includegraphics[width=140.0mm]{images/fluovsnofluo.png}
 \caption{The positions of irradiation for the investigation of the response of the scintillator}
 \end{figure}
-
 
 \subsubsection{Calibration of the position dependence}
 
@@ -609,7 +664,7 @@ In the simulation 3.6 million $\gamma$s were simulated. The measurement took 240
 
 \begin{figure}
 \includegraphics[width=150.0mm]{images/calibration_photon_yield.png}[H!]
-\caption{The satellite radiated by a pencil beam of 10.000 $\gamma$ particles. The scattered $\gamma$s induce signal in the scintillator}
+\caption{The spectra of 11 million photons taken experimentally (blue histogram) matched up with the results of the simulation (green histogram) and the Gaussian fitted to the simulated data}
 \end{figure}
 
 The energy bins had to be scaled up by a factor of 2.4 to match the experimental results. The amplitude had to be scaled up by a factor of 26.2.
@@ -625,12 +680,12 @@ In order to include the resonances in the cross section of the hadron-hadron int
 
 \begin{figure}[htbp]
  \centering % \begin{center}/\end{center} takes some additional vertical space
- \includegraphics[width=0.45\textwidth,origin=c,angle=0]{images/alt_600km_AE-8_MIN_averaged_spectra.png}
+ \includegraphics[width=0.45\textwidth,origin=c,angle=0]{images/alt_500km_AE-8_MIN_averaged_spectra.png}
  \qquad
- \includegraphics[width=.45\textwidth,origin=c]{images/alt_600km_AE-8_MAX_averaged_spectra.png} 
+ \includegraphics[width=.45\textwidth,origin=c]{images/alt_500km_AE-8_MAX_averaged_spectra.png} 
  % "\includegraphics" from the "graphicx" permits to crop (trim+clip)
  % and rotate (angle) and image (and much more)
- \caption{\label{fig:i} The scintillator on the left and the box holding the setup on the right}
+ \caption{\label{fig:band500e} The spatially avaraged band function (differential flux for a given energy band, solid line) and the integrated band function (dotted line) of electrons at an altitude of 500 km for solar minimum (left) and solar maximum (right) }
  \end{figure}
 
 
@@ -647,16 +702,18 @@ Electrons
 
 \begin{figure}[htbp]
  \centering % \begin{center}/\end{center} takes some additional vertical space
- \includegraphics[width=.45\textwidth,origin=c,angle=0]{images/alt_600km_AP-8_MIN_averaged_spectra.png}
+ \includegraphics[width=.45\textwidth,origin=c,angle=0]{images/alt_500km_AP-8_MIN_averaged_spectra.png}
  \qquad
- \includegraphics[width=.45\textwidth,origin=c]{images/alt_600km_AP-8_MAX_averaged_spectra.png} 
+ \includegraphics[width=.45\textwidth,origin=c]{images/alt_500km_AP-8_MAX_averaged_spectra.png} 
  % "\includegraphics" from the "graphicx" permits to crop (trim+clip)
  % and rotate (angle) and image (and much more)
- \caption{\label{fig:i} The scintillator on the left and the box holding the setup on the right}
+ \caption{\label{fig:band500p} The spatially avaraged band function (differential flux for a given energy band, solid line) and the integrated band function (dotted line) of protons at an altitude of 500 km for solar minimum (left) and solar maximum (right) }
  \end{figure}
 
-
 \pagebreak
+
+Put 4 spectra here from the 4 direction to the satellite. Quantify the detected photons by summing up all entries. Where should be the treshold?
+
 \section{Conclusion}
 
 In order to simulate how the XXX CubeSat would interact with the cosmic background and how sensitive it would be to the GRBs that it is designed to investigate a Geant4 simulation was built.
@@ -793,6 +850,20 @@ R. Willingale, P. Mészáros
 \bibitem{geant2} IEEE Transactions on Nuclear Science 53 No. 1 (2006) 270-278
 
 \bibitem{geant3} Nuclear Instruments and Methods in Physics Research A 835 (2016) 186-225
+
+\bibitem{cadmesh} Poole, C. M. and Cornelius, I. and Trapp, J. V. and Langton, C. M., A CAD Interface for GEANT4, Australasian Physical \& Engineering Science in Medicine, 2012
+
+\bibitem{assimp} http://www.assimp.org/
+
+\bibitem{tetgen} Hang Si. 2015. "TetGen, a Delaunay-Based Quality Tetrahedral Mesh Generator". ACM Trans. on Mathematical Software. 41 (2), Article 11 (February 2015), 36 pages
+
+\bibitem{scinti} http://www.amcrys.com/pdf/4279\_.pdf
+
+\bibitem{qe} http://www.hamamatsu.com/resources/pdf/ssd/s13360\_series\_kapd1052e.pdf
+
+\bibitem{esr} http://multimedia.3m.com/mws/media/466120O/esr.pdf 
+
+
 
 \end{thebibliography}
 
