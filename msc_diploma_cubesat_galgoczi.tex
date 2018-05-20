@@ -12,7 +12,7 @@
 %\usepackage[margin=2cm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[english]{babel}
-
+\usepackage{pdfpages}
 %\usepackage{showkeys}
 \usepackage{setspace}
 \frenchspacing
@@ -174,11 +174,7 @@ power consumption. We plan to use one of the latest-model MPPCs provided
 by Hamamatsu Photonics, which has an active area of 6  6 mm2. We have compared the performance of two scintillators of different sizes (150 75  5 mm3 and 100  75  5 mm3); the bigger one is the maximum size that can be mounted on a three-unit satellite, according to CubeSat standards.
 We have found that the two scintillators have similar light yields and each has an energy threshold of $\sim$10 keV at 25C. We have also examined the position dependence of the light yield by using radiation from 241Am (59.5 keV) source, and have confirmed that uniformity was improved by using two MPPCs for signal readout. 
  
-<<<<<<< HEAD
- \pagebreak
-=======
 \pagebreak
->>>>>>> 18904d6c1093cc60c10dc6f1c776111705edde35
 
 \subsection{Gamma-ray bursts}
 
@@ -227,72 +223,61 @@ Despite the fact that GRBs have been studied for more than fourty years a lot of
 
 \subsection{Search for the electromagnetic counterparts of gravitational wave events}
 
-Multi-messenger astronomy is based on the investigation of astronomical objects with disparate "messengers". It opened a possibility gather information in different ways to understand astrophysical objects. Until 2017 the three messenger were electromagnetic radiation, cosmic rays and neutrinos. 2017 opened a new era in multi-messenger astronomy as the electromagnetic counterpart of GW signal GW170817 was detected by the LIGO/Virgo collaboration. The source of this signal was the short GRB 170817A \cite{grb21}, a binary neutron star merger \cite{grb17} marks. 
+Multi-messenger astronomy is based on the investigation of astronomical objects with disparate "messengers". It opened a possibility gather information in different ways to understand astrophysical objects. Until 2017 the three messenger were electromagnetic radiation, cosmic rays and neutrinos. 2017 opened a new era in multi-messenger astronomy as the electromagnetic counterpart of GW signal GW170817 was detected by the LIGO/Virgo collaboration. The source of this signal was the short GRB 170817A \cite{grb21}, a binary neutron star merger \cite{grb17}. 
 
+This historical detection occured on August 17, 2017. The Fermi satellite detected the (short) GRB 170817A, approximately 1.7 s before to the detection of the GRB, LIGO-Virgo detector network observed a GW signal GW170817. The origin of this source was a neutron-neutron star merger. The source was localized  in a sky region of 28 deg$^{2}$ (with 90 \% confidence). 
 
-
-The discovery was made on August 17, 2017 at 12:41:06 UTC with the Fermi/GBM which detected and triggered on the short gamma-ray burst GRB 170817A. Approximately 1.7 prior to this GRB, LIGO-Virgo detector network observed a GW signal GW170817 at 12:41:04.4 UTC which originated from a BNS inspiral. The source was localized 9/89within a sky region of 28 deg 2 (90 \% probability), which was the most precisely localized GW signal yet. An extensive observing campaign was launched across the electromagnetic spectrum leading to the discovery of a bright optical transient in NGC 4993. Observations in $\gamma$-ray, X-ray, and ultraviolet (UV) wavelengths include also INTEGRAL \cite{grb22}, Chandra X-ray Observatory \cite{grb23}, Swift and Nuclear Spectroscopic Telescope ARray (NuSTAR) were performed and a blue kilonova associated with this event was detected \cite{grb24}.
-Some models predict also EM signal from BBH coalescence, for example \cite{grb25}. More detections of EM counterpart to GW sources and kilonovae are indeed essential for better understanding of these phenomena and this proposed mission has a great potential to bring new and valuable observational data.
-After the upgrades of LIGO, following the finished observing run O2, there will be O3 run scheduled to start in 2018. Further observing runs are expected after next improve of the sensitivity. Designed sensitivity is aimed to be achieved in 2021. The Kamioka Gravitational Wave Detector (KAGRA) 3 is expected to start the first cryogenic operation in 2018, and the observing runs with a full interferometer are expected in 2020s \cite{grb26}. Therefore, more GW detections are expected during the operation of this proposed mission.
+After the detection of the GRB signal, several space and earth based observatories in a wide range of wavelengths started the investigation of the source. The discovery of a bright optical transient linked to the GRB was discovered in NGC 4993. Observatories involved in the investigation included Chandra X-ray Observatory \cite{grb23}, INTEGRAL \cite{grb22}, Swift and Nuclear Spectroscopic Telescope ARray (NuSTAR). A blue kilonova associated with this event was detected \cite{grb24}. It is important to emphasize that not only neutron-neutron star mergers but neutron star-black hole and black hole-black hole mergers can emit electromagnetic signal \cite{grb25}. Therefore all short GRBs can be investigated with multi-messenger astronomy in the future. As LIGO is constantly upgrading its detectors, gravitational waves will be detected more often. An even more sensitive gravitational wave detector is under building callled Kamioka Gravitational Wave Detector (KAGRA). First scientific measurements will be taken in the 2020s \cite{grb26}.
 
 \subsection{Particle detectors in space}
 
-Various detector types has been used or are planned for space instruments for example gas-filled detectors like proportional counters and Geiger counters; scintillation detectors like inorganic crystal scintillators, e.g. NaI(Tl) or CsI(Tl), and plastic scintillators; semiconductor devices like, e.g. cryogenically cooled germanium, Cadmium Zinc Telluride (CZT) or Silicon Drift Detector (SDD) technique. Other types of detectors used in space missions are Compton scatter telescopes or pair production telescopes. Table 3 lists detector technologies capable of detecting GRBs in hard X-ray and gamma-ray range employed in previous and current major instruments. For an extensive review of hard X-ray / soft gamma-ray experiments and missions see \cite{grb30}.
+Almost all types of detectors starting from semiconductor based detectors to gas-filled detectors have been used in space. In the case of search for GRBs the detection of x-rays is the most relevant. Several types of detectors can be used for detecting $\gamma$ photons\cite{grb30}, for example the semiconductor based  German Position Sensitive Proportional Counters (PSPC) of the ROSAT X-ray telescope. For our satellite the size of the detector is limited, therefore the best option was the usage of scintillators. Mostly used scintillators in space include inorganic crystal scintillators, for example NaI(Tl) or CsI(Tl), and plastic scintillators. CsI(Tl) was chosen as the detector of the Camelot CubeSat due to it's high light yield.
 
 \subsection{Current missions observing gamma-ray bursts}
 
-Several spaceborn instruments and ground-based observatories are currently operating or are planed in
-order to bring more detailed observations of GRBs to better understand their nature. Their overview
-and comparison with the required specification on our proposed mission is given in following
-subsections.
-Our project will benefit from large field of view (FoV) and high localization accuracy. It will provide
-full-sky FoV and due to the advantage of using multiple satellites the occulted area by the Earth will
-be eliminated. The expected localization accuracy will be from $\sim$10' to degrees depending on the flux and duration of a GRB. This is not achieved by any of the current GRB missions. In the current missions either the large FoV or precise localization accuracy is accomplished. The large FoV instruments, e.g. INTEGRAL/SPI-ACS or Fermi/GBM, have either no localization capability or the localization accuracy is of the order of several degrees. On the other hand the current instruments providing localization accuracy of the order of arcmin have limited FoV, e.g. Swift/BAT or
-AGILE/Super-AGILE.
-Another advantage of our proposed mission is that the cost is only a fraction of the cost of a big
-satellite missions, e.g. like SVOM, and the concept of multiple cubesats allows higher flexibility in
-terms of extending the fleet by more satellites as well as allows replenishment of failed satellites.
+This subsection provides an overview of the existing missions that are aimed to detect GRBs. Field of view (FOV) an localization accuracy are chosen to compare them with the Camelot CubeSat. The proposed design of the Camelot satellite has the advantage of a large field of view and a high localization accuray. The main idea is that each CubeSat will detect GRBs at the same time. By measuring the time difference between the triggering of each satellite, the GRB soure can be triangularized. By using more satellites, the field of view will be the full-sky and localization accuracy increases.
+
+The planed localization accuracy is more precise than any other existing GRB mission, that might reach $\sim$10'. While providing the highest lcoalization accuray, the field of view would also the be the highest, even larger than the field of view of the INTEGRAL/SPI-ACS and Fermi.
+
+The size and mass of the Camelot CubeSat is less than 1\% of the Fermi telescope. Therefore from a fraction of the cost several satellites could be built and deployed in orbit. Having several satellites also provide a high redundance.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=130.0mm]{images/fovvsloc.png}
-\caption{The field of view and localization accuracy of several missions}
+\caption{The field of view and localization accuracy of several missions including the Camelot CubeSat.}
 \end{figure}
 
-Fermi 7 \cite{grb28} was launched in 2008 and the main instruments are the Large Area Telescope (LAT) and the Gamma-ray Burst Monitor. 
-Neil Gehrels Swift Observatory (Swift) 8 \cite{grb31} was launched in 2005 and the main instruments are
-Burst Alert Telescope (BAT), X-ray Telescope (XRT), and UV/Optical Telescope (UVOT).
-INTErnational Gamma-Ray Astrophysics Laboratory (INTEGRAL) 9 \cite{grb32} was launched in
-2002 Among several instruments on board INTEGRAL the ones which detect most of GRBs are the Anti-Coincidence Shield of the SPectrometer of INTEGRAL (SPI-ACS) and the Integral Soft Gamma-Ray Imager (ISGRI) detector layer of the Imager on Board the Integral Satellite (IBIS).
-Wind/Konus 10 \cite{grb33} was launched in 1994 and its still active GRB instrument is Konus.
-Astro-Rivelatore Gamma a Immagini Leggero (AGILE) 11 /Super-AGILE \cite{grb34} was launched in
-2007 and its Hard X-ray Imaging Detector (Super-AGILE) detected several GRBs.
-CALorimetric Electron Telescope (CALET) 12 \cite{grb35} / Gamma-Ray Burst Monitor (CGBM), was launched in 2015 and it is placed on the International Space Station (ISS).
+The following list includes the most relevant, currently ongoing missions looking for GRBs:
 
-Monitor of All-sky X-ray Image (MAXI) 13 \cite{grb36}, started nominal observation in 2009. Its instrument Gas Slit Camera (GSC) detects GRBs. The instrument is placed on ISS.
-Gamma-ray Burst Polarimeter POLAR 14 \cite{grb37}, was launched in 2016 and is dedicated to the measurement of GRB polarization.
-Lomonosov 15 /BDRG \cite{grb38}, was launched in 2016. The BDRG instrument on board detected several GRBs.
-The Hard X-ray Modulation Telescope (Insight-HXMT) 16 \cite{grb39}, was launched in 2017. It has on board the high energy X-ray telescope (HE), the medium energy X-ray telescope, and the low energy X-ray telescope.
-ASTROSAT 17 \cite{grb40}, was launched in 2015 and its Cadmium Zinc Telluride Imager (CZTI) has already detected many GRBs.
-Reuven Ramaty High Energy Solar Spectroscopic Imager (RHESSI) 18 \cite{grb41}, was launched in 2002. It is designed to study hard x-ray and gamma-ray emission from solar flares, however it is also efficient instrument to detect non-solar gamma-ray events like GRBs.
-The energy range, FoV and localization accuracy for the instruments of the current missions which observe GRBs is summarized in Table 4. Figure 3 shows the FoV vs. localization accuracy of the current instruments which detect GRBs. For comparison the specification of this project is shown as
-well.
+\begin{itemize}
+\item Fermi 7 \cite{grb28} was launched in 2008 and its main instruments are Gamma-ray Burst Monitor and the Large Area Telescope (LAT). 
+\item Neil Gehrels Swift Observatory (Swift) 8 \cite{grb31} was launched in 2005 and its main instruments are Burst Alert Telescope (BAT), X-ray Telescope (XRT), and UV/Optical Telescope (UVOT).
+\item INTErnational Gamma-Ray Astrophysics Laboratory (INTEGRAL) 9 \cite{grb32} was launched in 2002. The most succesfull instruments on board include are the Anti-Coincidence Shield of the SPectrometer of INTEGRAL (SPI-ACS) and the Integral Soft Gamma-Ray Imager (ISGRI) detector layer of the "Imager on Board the Integral Satellite (IBIS)" detector.
+\item Astro-Rivelatore Gamma a Immagini Leggero (AGILE) 11 \cite{grb34} was launched in 2007 and its Hard X-ray Imaging Detector (Super-AGILE) detected several GRBs.
+\item CALorimetric Electron Telescope (CALET) 12 \cite{grb35} / Gamma-Ray Burst Monitor (CGBM), was launched in 2015 and it is placed on the International Space Station (ISS).
+\item Monitor of All-sky X-ray Image (MAXI) 13 \cite{grb36}, started nominal observation in 2009. Its instrument Gas Slit Camera (GSC) detects GRBs. The instrument is placed on ISS.
+\item Gamma-ray Burst Polarimeter POLAR 14 \cite{grb37}, was launched in 2016 and is dedicated to the measurement of GRB polarization.
+\item Lomonosov 15 /BDRG \cite{grb38}, was launched in 2016. The BDRG instrument on board detected several GRBs.
+\item The Hard X-ray Modulation Telescope (Insight-HXMT) 16 \cite{grb39}, was launched in 2017. It has on board the high energy X-ray telescope (HE), the medium energy X-ray telescope, and the low energy X-ray telescope.
+\item ASTROSAT 17 \cite{grb40}, was launched in 2015 and its Cadmium Zinc Telluride Imager (CZTI) has already detected many GRBs.
+\item Reuven Ramaty High Energy Solar Spectroscopic Imager (RHESSI) 18 \cite{grb41}, was launched in 2002. It is designed to study hard x-ray and gamma-ray emission from solar flares, however it is also efficient instrument to detect non-solar gamma-ray events like GRBs.
+\end{itemize}
 
-\subsection{Currently operating GRB collection and alert networks}
 
-Our project can potentially contribute to some of the currently operating GRB collection and alertnetworks such as the following ones:
-The InterPlanetary Network (IPN) 27 \cite{grb42} which derives the positions of fast gamma-ray transients of all kinds by triangulation. Numerous spacecraft and instruments participate in the network at the Earth’s orbit as well as in the interplanetary space. It detects about 350/year.
-The Gamma-ray Coordinates Network (Transient Astronomy Network) (GCN/TAN) 28 provides information about GRBs in real-time to the world community. The network provides the real-time (and near real-time) distribution of GRB locations, images, spectra, and lightcurves detected by various spacecraft and the distribution of follow-up observation reports.
-The Global Relay of Observatories Watching Transients Happen (GROWTH) 29 is an international scientific collaborative project studying the astronomical transients.
+%\subsection{Currently operating GRB collection and alert networks}
 
-\subsection{Current GRB Follow-up observations}
+%Our project can potentially contribute to some of the currently operating GRB collection and alertnetworks such as the following ones:
+%The InterPlanetary Network (IPN) 27 \cite{grb42} which derives the positions of fast gamma-ray transients of all kinds by triangulation. Numerous spacecraft and instruments participate in the network at the Earth’s orbit as well as in the interplanetary space. It detects about 350/year.
+%The Gamma-ray Coordinates Network (Transient Astronomy Network) (GCN/TAN) 28 provides information about GRBs in real-time to the world community. The network provides the real-time (and near real-time) distribution of GRB locations, images, spectra, and lightcurves detected by various spacecraft and the distribution of follow-up observation reports.
+%The Global Relay of Observatories Watching Transients Happen (GROWTH) 29 is an international scientific collaborative project studying the astronomical transients.
 
-This cubesat project will provide high precision localization accuracy of GRBs allowing efficient follow-up observations by existing ground based observatories. There are several observatories world-wide to perform photometric or spectroscopic observations of GRB afterglows, for example:
-The Mobile Astronomical System of TElescope Robots (MASTER) 30 \cite{grb43} is a global network of robotic telescopes for very fast positioning and follow up of GRBs.
-The Burst Optical Observer and Transient Exploring System (BOOTES) network of robotic telescopes for follow up observations of GRBs. 31 \cite{grb44} is a world wide The Robotic Optical Transient Search Experiment (ROTSE) 32 [101] are telescopes which operate at
-sites around the world and follow GRBs.
-Pi of the Sky 33 [102] is a system of detectors designed for continuous observation of night sky looking for optical flashes of astrophysical origin, in particular for GRBs.
-Several other telescopes and observatories which provide measurements in optical, infra-red or radio bands are also, e.g.: Gamma-Ray Burst Optical/Near-Infrared Detector (GROND) 34 , the Palomar 60 inch telescope 35 , Rapid Eye Mount (REM) 36 , Livermore Optical Transient Imaging System (Super- LOTIS) 37 , Télescopes à Action Rapide pour les Objets Transitoires (TAROT) 38 , Gran Telescopio Canarias (GTC) 39 , ESO Very Large Telescope (VLT) 40 , Nordic Optical Telescope (NOT) 41 , Observatorio Astronómico Nacional on the Sierra de San Pedro Mártir 42 , Cerro Tololo Inter-American Observatory (CTIO) 43 , Telescopio Nazionale Galileo (TNG) 44 , Gao-Mei-Gu (GMG) station of Yunnan Observatories 45 , Observatorio de Sierra Nevada (OSN) 46 , United Kingdom Infrared Telescope (UKIRT) 47 , Very Large Array (VLA) 48 , Atacama Large Millimeter/Submillimeter Array (ALMA) 49 , James Clerk Maxwell Telescope 50 , Arcminute Microkelvin Imager which robotically triggers on Swift GRBs (AMI-GRB) 51 .
+%\subsection{Current GRB Follow-up observations}
+
+%This cubesat project will provide high precision localization accuracy of GRBs allowing efficient follow-up observations by existing ground based observatories. There are several observatories world-wide to perform photometric or spectroscopic observations of GRB afterglows, for example:
+%The Mobile Astronomical System of TElescope Robots (MASTER) 30 \cite{grb43} is a global network of robotic telescopes for very fast positioning and follow up of GRBs.
+%The Burst Optical Observer and Transient Exploring System (BOOTES) network of robotic telescopes for follow up observations of GRBs. 31 \cite{grb44} is a world wide The Robotic Optical Transient Search Experiment (ROTSE) 32 [101] are telescopes which operate at sites around the world and follow GRBs.
+%Pi of the Sky 33 [102] is a system of detectors designed for continuous observation of night sky looking for optical flashes of astrophysical origin, in particular for GRBs.
+%Several other telescopes and observatories which provide measurements in optical, infra-red or radio bands are also, e.g.: Gamma-Ray Burst Optical/Near-Infrared Detector (GROND) 34 , the Palomar 60 inch telescope 35 , Rapid Eye Mount (REM) 36 , Livermore Optical Transient Imaging System (Super- LOTIS) 37 , Télescopes à Action Rapide pour les Objets Transitoires (TAROT) 38 , Gran Telescopio Canarias (GTC) 39 , ESO Very Large Telescope (VLT) 40 , Nordic Optical Telescope (NOT) 41 , Observatorio Astronómico Nacional on the Sierra de San Pedro Mártir 42 , Cerro Tololo Inter-American Observatory (CTIO) 43 , Telescopio Nazionale Galileo (TNG) 44 , Gao-Mei-Gu (GMG) station of Yunnan Observatories 45 , Observatorio de Sierra Nevada (OSN) 46 , United Kingdom Infrared Telescope (UKIRT) 47 , Very Large Array (VLA) 48 , Atacama Large Millimeter/Submillimeter Array (ALMA) 49 , James Clerk Maxwell Telescope 50 , Arcminute Microkelvin Imager which robotically triggers on Swift GRBs (AMI-GRB) 51 .
 
 \subsection{The CAMELOT satellite}
 
@@ -304,9 +289,9 @@ There would most likely be four scintillators on the CAMELOT satellite. On two n
 \caption{The modules of the satellite}
 \end{figure}
 
+The Camelot satellite will consist of the following modules:
+
 \begin{itemize}
-\item The CubeSat platform has the following Sub-systems level elements, Figure 5 shows the sub-systems
-of the CubeSat platform.
 \item On-Board Computer [OBC] is responsible for control all the satellite’s sub-systems. OBC collects housekeeping and payload data and archives them in its internal storage.
 \item Electrical Power System [EPS] is responsible for managing primary and secondary power sources and distributing power at appropriate voltage levels to on-board subsystems.
 \item COM UHF Transceiver [COM] provides an RF communication link between the Ground Segment and the satellite. The COM codes the received messages from the OBC and transmits to the Ground Segment. Furthermore, the COM decodes the received RF messages from the Ground Segment and transmits to the OBC.
@@ -716,13 +701,17 @@ The energy bins had to be scaled up by a factor of 2.4 to match the experimental
 
 \pagebreak
 
+\subsection{Simulation of the signal induced by GRBs in the satellite}
 
+One of the key questions is whether 
 
 \subsection{Simulation of the cosmic background in space}
 
 SPENVIS \cite{spenvis}
 
 "SPENVIS is ESA's SPace ENVironment Information System, a WWW interface to models of the space environment and its effects; including cosmic rays, natural radiation belts, solar energetic particles, plasmas, gases, and "micro-particles"."
+
+\subsubsection{Proton background}
 
 In order to include the resonances in the cross section of the hadron-hadron interactions, additional physics models are needed to be included in the simulation. The signal induced by these resonances might affect the measurement of the protons.
 
@@ -743,6 +732,8 @@ Protons
 'Perigee: 500.0 km'
 'Inclination: 89.0 deg'
 
+\subsection{Electron background}
+
 Electrons
 'Trapped electron model: AE-8 MIN'
 %'Energy','MeV','Energy'
@@ -758,6 +749,8 @@ Electrons
  % and rotate (angle) and image (and much more)
  \caption{\label{fig:band500p} The spatially avaraged band function (differential flux for a given energy band, solid line) and the integrated band function (dotted line) of protons at an altitude of 500 km for solar minimum (left) and solar maximum (right) }
  \end{figure}
+
+\subsubsection{$\gamma$ background}
 
 \pagebreak
 
@@ -861,8 +854,6 @@ A, 342, 302
 
 \bibitem{grb32} Winkler C., Courvoisier T. J.-L., Di Cocco G., et al. 2003, Astronomy and Astrophysics, 411, L1
 
-\bibitem{grb33} Mazets E. P., \& Golenetskii S. V. 1981a, Astrophysics and Space Science, 75, 47
-
 \bibitem{grb34} Tavani M., Barbiellini G., Argan A., et al. 2009, Astronomy and Astrophysics, 502, 995
 
 \bibitem{grb35} Yamaoka K., Yoshida A., Nonaka Y. 2011, 32nd International Cosmic Ray Conference, 9, 111
@@ -921,6 +912,9 @@ R. Willingale, P. Mészáros
 
 \pagebreak
 
+\listoffigures
+
+\includepdf[pages=-,pagecommand={},width=\textwidth]{images/nyilatkozat.pdf}
 
 
 
