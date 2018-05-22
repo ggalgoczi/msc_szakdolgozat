@@ -304,30 +304,30 @@ solar arrays. The Aux subsystem also contains the rigid backplane of the satelli
 
 \subsection{The detection of GRBs}
 
-The current detector design is a combination of CsI scintillators reaodout by the Multi Pixel Photon Counter (MPPC), which is a kind of the Silicon Photomultiplier device. The advantage of this system is a high light output with compact readout area. For the localization of GRB, photon statistics is one of important issue. Therefore, we need as much light yield as possible. Also, since the detector mounting area for the 3U cubesat standard is limited to be $\sim$300x75x5 mm$^{3}$ as described in the beginning of this section, a compact readout device is required. Currently, we are evaluating the detector performance using a sample of detector system consist of CsI(Tl) scintillator with a dimension of 150x75x5 mm$^{2}$ readout by Hamamatsu MPPC (latest model: S13360-6050CS with an effective area of 6x6 mm$^{2}$). \ref{fig:schem} shows a schematic picture of the location of one side of the detector and actual setup of performance evaluation test.
+In the case of our satellite, the detection of $\gamma$ photons from GRBs will be carried out by a Caesium Iodide scintillator doped with Tellurium. This is the most popular alkali halide scintillation crystal apart from NaI(Tl). The $\gamma$ photons create scintillation, thus thousands of optical photons in the scintillator. These photons will be detected by Silicon Photomultiplier device called Multi Pixel Photon Counter, MPPC for short. This if by far the best and most compact solution as the size of cubesat standard is limited to be $\sim$300x75x5 mm$^{3}$. The first tests were carried out by a single MPPC readout, which was followed by a design with two MPPCs to maximize the light yield and minimalize the noise. The size of the Hamamatsu MPPC is 6x6 mm$^{2}$. The scintillators will be placed onto the surface of the satellite as can be seen in fig. \ref{fig:scints}. While fig. \ref{fig:schem} shows the experimental setup used for the tests.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=130.0mm]{images/scint_on_sate.png}
 \caption{Side extensions including of the CAMELOT satellite (left) where scintillators are placed and and a wrapped scintillator with the MPPC read out (right)}
+\label{fig:scints}
 \end{figure}
 
-It is challenging to readout the scintillation photons for such geometrically large and thin crystal with small readout area because the produced scintillation photons would be suffered by the multiple scattering inside the crystal before reaching the readout area of the MPPC. This would degrade the final light yield and affect to the performance of the energy resolution and lower energy threshold. In order to overcome this problem, we are planning to apply a multi-channel coincidence readout technique. A multi-channel readout increases the readout area and final light yield, simply and improvement of the uniformity of the light yield with respect to the incident gamma-ray position would be expected. However, increasing of the readout channel also increase the leakage current, which would be proportional to the readout area. The coincidence readout technique would be expected to suppress the effect of the increasing of the leakage current in the resultant spectrum. 
+The large area and small thickness of the scintillator makes it challenging for the read out as optical photons have to be reflected several times to reach the MPPC. Two factors play role here, the self absorption of the reflectivity of the tape that is used to cover the scintillator. The length of the self absoprtion is in the order of a meter and the reflectivity of the ESR tape, which is above 99 \% can be seen in fig. \ref{fig:refl}. The idea that we came is using two MPPC-s with coincidence. This results in a smaller leakage current (noise) as the noise has a poissonian statistic. Therefore the noise is "random" and the chance of a trigger from both of the MPPC has a very low chance. The other advantage is the incread photon yield due to the double of the photon collection area. The difference between one and two channel readout can be seen in fig. \ref{fig:spectra}.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=130.0mm]{images/histo_for_det.png}
 \label{fig:spectras_meas}
 \caption{Energy spectra obtained by collecting the signal of 1 million $\gamma$ with the one channel and the two channel read out}
+\label{fig:spectra}
 \end{figure}
-
-Figure 23 shows the latest result of the study of this technique by irradiating 241Am radioisotope. Black and red data show the result by the single channel and 2-channel coincidence readout the single channel readout, respectively. As one can see obviously, the final light yield corresponding to the 59.5 keV gamma-ray photo absorption peak increases by almost 50 \% for the 2-channel readout. By scaling  the 2-channel readout result to the single channel readout for the 59.5 keV peak as shown by the blue curve, we found that the energy resolution improved thanks to the improvement of the uniformity of the position dependence of the light yield. Finally, we confirmed that the lower energy threshold for both readout technique achieved to be about 10 keV. Further improvement of the uniformity and/or lower energy threshold could be possible by optimizing the install location of the MPPC device.
 
 \subsection{The Geant4 platform}
 
-Geant4 \cite{geant1, geant2, geant3} (for GEometry ANd Tracking) is a platform for "the simulation of the passage of particles through matter," using Monte Carlo methods. It is the successor of the GEANT series of software toolkits developed by CERN, and the first to use object oriented programming (in C++). Its development, maintenance and user support are taken care by the international Geant4 Collaboration. Application areas include high energy physics and nuclear experiments, medical, accelerator and space physics studies. The software is used by a number of research projects around the world.
+The most used software in particle physics are MCNPX, FLUKA and Geant4. For this thesis Geant4 was chosen as it is the best for simulation of several types of particles at the same time and building up the geometry of detectors is most propably is the most convinient in the software. 
 
-The Geant4 software and source code is freely available from the project web site; until version 8.1 (released June 30, 2006), no specific software license for its use existed; Geant4 is now provided under the Geant4 Software License.
+Geant4 \cite{geant1, geant2, geant3} (for GEometry ANd Tracking) is a platform for "the simulation of the passage of particles through matter," using the Monte Carlo method. It has been developed at CERN for more than three decades by dozens of physicst and programmers. The cross sections for all interactions between matter and particles are included in this software. It is an object orianted programming platform in C++. Its development, maintenance and user support are taken care by the international Geant4 Collaboration. Areas in science that has used Geant4 are vary wide from the design of complex medical machines to accelerator, nuclear physics, hight energy physics and space applications. Several thousand people use it all around the globe.
 
 \begin{figure}[H]
 \centering
@@ -335,22 +335,7 @@ The Geant4 software and source code is freely available from the project web sit
 \caption{The Geant4 simulation of the whole ATLAS experiment}
 \end{figure}
 
-Geant4 includes facilities for handling geometry, tracking, detector response, run management, visualization and user interface. For many physics simulations, this means less time needs to be spent on the low level details, and researchers can start immediately on the more important aspects of the simulation.
-
-Following is a summary of each of the facilities listed above:
-
-Geometry is an analysis of the physical layout of the experiment, including detectors, absorbers, etc., and considering how this layout will affect the path of particles in the experiment.
-Tracking is simulating the passage of a particle through matter. This involves considering possible interactions and decay processes.
-Detector response is recording when a particle passes through the volume of a detector, and approximating how a real detector would respond.
-Run management is recording the details of each run (a set of events), as well as setting up the experiment in different configurations between runs.
-Geant4 offers a number of options for visualization, including OpenGL, and a familiar user interface, based on Tcsh.
-Geant4 can also perform basic histogramming; it requires external analysis tools or software that implements the AIDA framework for exploiting advanced histogramming features.
-
-Since release 10.0, Geant4 implements multithreading, making use of thread-local storage to allow for efficient generation of simulated events in parallel.
-
-Because of its general purpose nature, Geant4 is well suited for development of computational tools for analysing interactions of particle with matter in many areas. These include:
-
-Space applications where it is used to study interactions between the natural space radiation environment and space hardware or astronauts; Medical applications where interactions of radiations used for treatment are simulated. Radiation effects in microelectronics where ionizing effects on semiconductor devices are modeled.
+The Geant4 platform includes all the important features required in the full simulation of an experiment from handling the geometry of the detector and readout, tracking of particles in the detectors for visualization.
 
 \subsection{The experimental setup}
 
@@ -384,6 +369,7 @@ We have found that the two scintillators have similar light yields and each has 
 \centering
 \includegraphics[width=130.0mm]{images/reflectivity.png}
 \caption{The reflectivity $\cite{scinti}$ of the ESR tape that was used to wrap the scintillator in order to increase the light yield. This data was included in the simulation.}
+\label{fig:refl}
 \end{figure}
 
 
@@ -521,6 +507,7 @@ $$A = \frac{1.234}{4 \pi} \cdot 471 kBq = 46.25 kBq$$
 \centering
 \includegraphics[width=130.0mm]{images/2channelsetup.png}[H!]
 \caption{The MPPCs for the 2 channel readout are positioned symmetrically from the center of the scintillator}
+\label{fig:schem}
 \end{figure}
 
 \begin{figure}[h!]
@@ -681,6 +668,11 @@ Refl:& 0.9996 & Abs.:& 80 cm   &  &  &  &  &  &  \\
  \hline
   Pos. of source & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\ 
   Pos. of main peak &  &  &  &  &  &  &  & 1 &  \\ 
+  \hline \hline
+Refl:& 0.9999 & Abs.:& 105 cm   &  &  &  &  &  &  \\ 
+ \hline
+  Pos. of source & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\ 
+  Pos. of main peak & 0.6911 & 0.6865 & 0.6956 & 0.7002 & 0.6956 & 0.7002 & 0.6041 & 1 & 0.5955 \\ 
   \hline
 \end{tabular}
  \caption{The position of the Gaussian peak fitted to the 60 keV peak of the Am source for several irradiated positions}
