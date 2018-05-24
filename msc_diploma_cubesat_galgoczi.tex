@@ -31,9 +31,9 @@
 
 \usepackage{geometry}
 %kotesre
-\geometry{left=2.5cm,right=1.5cm,top=2.0cm,bottom=2.0cm}
+%\geometry{left=2.5cm,right=1.5cm,top=2.0cm,bottom=2.0cm}
 %standard
-%\geometry{left=2.0cm,right=2.0cm,top=2.0cm,bottom=2.0cm}
+\geometry{left=3.0cm,right=3.0cm,top=2.0cm,bottom=2.0cm}
 
 \newcommand*{\Resize}[2]{\resizebox{#1}{!}{$#2$}}%
 
@@ -202,7 +202,7 @@ On the contrary, short GRBs are thought to originate in old populations. The the
 \begin{figure}[H]
 \centering
 \includegraphics[width=130.0mm]{images/grb_spectra.png}
-\caption{The band function of GRB 9900123 $\cite{grb_spectra}$}
+\caption{The band function of GRB 990123 $\cite{grb_spectra}$}
 \label{fig:grb_band}
 \end{figure}
 
@@ -339,79 +339,7 @@ The Geant4 platform includes all the important features required in the full sim
 
 \subsection{The experimental setup}
 
-
-We are designing a fleet of nanosatellites to perform accurate position determinations
-of short-duration gamma-ray bursts by measuring arrival time differences.
-To achieve sufficient photon statistics to measure the arrival times
-precisely under the severe limitations of size, mass, and power consumption,
-we propose the use of a large-area CsI scintillator that has high light output
-and the use of a small-sized multipixel photon counter (MPPC) that has low
-power consumption. We plan to use one of the latest-model MPPCs provided
-by Hamamatsu Photonics, which has an active area of 6  6 mm2. We have compared the performance of two scintillators of different sizes (150  75  5 mm3 and 100  75  5 mm3); the bigger one is the maximum size that can be mounted on a three-unit satellite, according to CubeSat standards.
-We have found that the two scintillators have similar light yields and each has an energy threshold of $\sim$10 keV at 25C. We have also examined the position dependence of the light yield by using radiation from 241Am (59.5 keV) source, and have confirmed that uniformity was improved by using two MPPCs for signal readout. 
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=130.0mm]{images/spectracsitl.png}
-\caption{The emitted scintillation light spectra of three types of scintillators. In our experiment CsI(Tl) was used}
-\end{figure}
-
-
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=130.0mm]{images/qe.png}
-\caption{The photon detection efficiency $\cite{qe}$ of the MPPCs used for the readout of the scintillators. This data was included in the simulation.}
-\end{figure}
-
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=130.0mm]{images/reflectivity.png}
-\caption{The reflectivity $\cite{scinti}$ of the ESR tape that was used to wrap the scintillator in order to increase the light yield. This data was included in the simulation.}
-\label{fig:refl}
-\end{figure}
-
-
-HAMAMATSU S13360-6050CS
-
-ESR foil
-
-QE \cite{qe} of the MPPC
-
-
-datasheet of QE:
-%http://www.hamamatsu.com/resources/pdf/ssd/s13360_series_kapd1052e.pdf
-
-esr \cite{esr} foil:
-Please check "ESR from 3M" company. e.g.,
-%http://multimedia.3m.com/mws/media/466120O/esr.pdf
-
-
-
-\subsection{Simulation}
-
-In order to understand how the $\gamma$ photons -- that the CubeSat is meant to detect -- interact with the matter of the satellite simulations are needed. In a simulation it is also possible to determine the optimal geometry that would lead to the best GRB detection. 
-
-The Geometry... XXX TRacking (Geant4) 
-
-
-The cross section for photoeffect is far the largest by far for low energy gamma photons.
-The ionized nuclei and the secondary electrons generates scintillation.
-
-\includegraphics[width=130.0mm]{images/secondary.png}
-
-
-\includegraphics[width=130.0mm]{images/secondary2.png}
-
-Also the nuclei that is ionized by the gamma produces photons.
-
-\section{Setup}
-
-We obtained energy spectra by using two radioisotopes (109Cd and 241Am) to evaluate the performance of our CsI scintillator + MPPC system. We placed a CsI scintillator and an MPPC in an aluminum case (2 mm thick) installed in the thermostatically controlled chamber (ESPEC LU-113). We set the operating temperature to 25C. We first tested a one-MPPC readout by using a commercial charge-sensitive preamplifier (CLEAR-PULSE 5028), a shaping amplifier (EG\&G ORTEC 571), and an ADC (AMPTEC MCA800A). We set the shaping time to 1 $\mu$s. We then tested a two-MPPC readout by using an 3 FADC Board (SHIMAFUJI Electric) originally developed for an astrophysical polarimetry mission PoGO+ [9] in order to read and sum the signals of coincident events; the shaping time for this test was set at 2.2 $\mu$s.
-Figure 1 shows the setup of the experiment. We installed two lead sheets (identical in size to the scintillator) to collimate signals from the radioisotopes(3.3). We tested two CsI scintillators obtained from Amcrys with different sizes (150  75  5 mm3 and 100  75  5 mm3). Each was covered with one layer of ESR as a reflector. We used one of the latest-model MPPCs by Hamamatsu Photonics, namely, S13360-6050CS, which has an active area of 6  6 mm2 [10]. We attached an MPPC to the center of the narrower side plane of the scintillator (with an area of 75  5 mm3) for the one-MPPC readout. For the two-MPPC readout, we attached the MPPCs 18.75 mm from the edge of the plane. The breakdown voltages of the two-MPPCs are almost the same–50.82 and 50.87 V–at 25 C. We used a KEITHLEY 2400 to supply the operational voltage of 53.4 V. In analyzing of the obtained data, we evaluated four items:
-the light yields of the two scintillators, the energy thresholds, the
-uniformity of the light yield, and the energy resolution.
+In order to understand and charaterize the behaviour of the large-area CsI(Tl) scintillator detector and the MPPC readout an experimental setup was built in Hiroshima, Japan. The experimental setup provided vital information for the simulation, mostly for the position dependence of the light yield. Different $\gamma$ source were used, mostly an $^{241}$Am source. 
 
 \begin{figure}[htbp]
  \centering % \begin{center}/\end{center} takes some additional vertical space
@@ -423,45 +351,70 @@ uniformity of the light yield, and the energy resolution.
  \caption{\label{fig:i} The scintillator on the left and the cage holding the setup on the right}
  \end{figure}
 
+The detector was wrapped in a so called ESR foil that is designed to reflect as much light as possible. In fig. \ref{fig:refl} the reflectivity of this tape can be seen depending on the wavelenght of the photons, exceeding 99 \% for most of the wavelengths. It is important as the optical photons have to be reflected several times in order to be read out with the small effective are of the MPPC. This reflectivity was included in the simulation.
 
-\begin{figure}
-\includegraphics[width=130.0mm]{images/1channelelectronics.png}
-\caption{The schematic design of the readout of the MPPC for the 1 channel configuration}
-\label{fig:el1ch}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=130.0mm]{images/reflectivity.png}
+\caption{The reflectivity $\cite{scinti}$ of the ESR tape that was used to wrap the scintillator in order to increase the light yield. This data was included in the simulation.}
+\label{fig:refl}
 \end{figure}
 
-
-
-\begin{figure}
-\includegraphics[width=130.0mm]{images/tap1channel.png}
-\caption{\label{fig:1channeltape} The MPPC is fixed to the scintillator with valqua tape}
-\end{figure}
-
-
-
-Size of the scintillator is, the aluminium housing thickness is, the size of the SiPM is...
-
-Parameters of the CsI(Tl) scintillator REF
-
-
+The CsI(Tl) scintillator used is produced by AmCrys \cite{scinti}. The dimension of this detector are 150 mm x 75 mm x 5 mm, the largest possible size that can fit onto the surface of the detector. The spectra of the optical photons produced in the scintillation process can be seen in fig. \ref{fig:scint_yield}. An aluminium case of 2mm is used, the same as planned for the mission in space. The time constant for the scintillation of the detector was 200 ns.
 
 \begin{table}[h!]
 \begin{center}
 \begin{tabular}{ |c|c|c|c|c|c|c|c|c|} 
  \hline
- Energy [eV] & 3.54 & 3.10 & 2.76*eV & 2.48*eV & 2.36*eV & 2.25*eV & 2.07*eV & 1.91*eV\\\hline
+ Energy [eV] & 3.54 & 3.10 & 2.76 & 2.48 & 2.36 & 2.25 & 2.07 & 1.91\\\hline
  Relative emittance & 0.02 & 0.1 & 0.3 & 0.6 & 0.9 & 1.0 & 0.7 & 0.4 \\\hline
  Refractive index & 1.59 & 1.57 & 1.54 & 1.54 & 1.54 & 1.54 & 1.54 & 1.54 \\\hline
  Absorption lengh [cm] & 50 & 50 & 50 & 50 & 50 & 50 & 50 & 50  \\\hline
- 
-
- \hline
 \end{tabular}
 \end{center}
-\caption{The mass ratio of materials that are used for the satellite}
+\caption{The parameters of the CsI(Tl) scintillator used in our experiment}
 \end{table}
 
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=130.0mm]{images/spectracsitl.png}
+\caption{The emitted scintillation light spectra of three types of scintillators. In our experiment CsI(Tl) was used}
+\label{fig:scint_yield}
+\end{figure}
+
+The MPPC chosen for this satellite is one of the latest models (HAMAMATSU S13360-6050CS) \cite{qe}. It has an effective area of 6mm x 6mm. The photon detection efficiency of this specific model can be seen in fig. \ref{fig:qe}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=130.0mm]{images/qe.png}
+\caption{The photon detection efficiency $\cite{qe}$ of the MPPCs used for the readout of the scintillators. This data was included in the simulation.}
+\label{fig:qe}
+\end{figure}
+
+
+\subsection{The readout of the detector}
+
+The response of the MPPC detector used depends on temperature. Therefore the experimental setup was placed in a thermostatically controlled chamber (ESPEC LU-113) keeping the temperature at 25$^{\circ}$. Two setups were investigated. The first one with a single MPPC readout placed in the middle of one side of the scintillator. In the other case two MPPCs were utilized symmetrically placed on one side of the detector.
+
+For the single MPPC readout setup a commercial charge-sensitive preamplifier (CLEAR-PULSE 5028), a shaping amplifier (EG\&G ORTEC 571), and an ADC (AMPTEC MCA800A) were used to obtain an electric signal read out by a PC. The shaping times was set to 1 $\mu$s.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=80.0mm]{images/1channelelectronics.png}
+\caption{The schematic design of the readout of the MPPC for the 1 channel configuration}
+\label{fig:el1ch}
+\end{center}
+\end{figure}
+
+For the case of the two-channel read out an FADC board was utilized that contains all the necesarry electronics to read out the signal of the MPPC with an additional coincidence unit. This board was developed for the astrophysical polarimetry mission PoGO+. The shaping time was set to 2.2 $\mu$s in this case. The breakdown voltages of the two-MPPCs are almost the same–50.82 and 50.87 V–at 25 C. We used a KEITHLEY 2400 to supply the operational voltage of 53.4 V.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=80.0mm]{images/2channelelectronics.png}
+\caption{The schematic design of the readout electronics of the 2 channel setup}
+\end{figure}
 
 %  CsI_mt->AddConstProperty("RESOLUTIONSCALE",1.0);
 %  CsI_mt->AddConstProperty("SLOWTIMECONSTANT",200.*ns);
@@ -474,47 +427,34 @@ Parameters of the CsI(Tl) scintillator REF
 %  G4double photocath_ReR[num]={1.92,1.92};
 %  G4double photocath_ImR[num]={1.69,1.69};
 
-\begin{itemize}
-\item Scintillation yield (Number of photons produced by given keV depleted in the scintillator): 540 1/keV
-\item The time constant of the scintillation photon creation: 200 ns (exponential decay)
-\end{itemize}
-
-Optical parameters of the materials and surfaces:
-\begin{itemize}
-\item Refractive indices of all relevant materials
-\item Reflection
-\item The detection efficiency of the SiPM detectors
-\end{itemize}
+\pagebreak
 
 \subsection{1 channel setup}
 
-\begin{figure}
+The $\gamma$ source that was used to test the experimental setup was choosen to be an $^{241}Am$. The reason for this is that the peak of energy spectrum of the $\gamma$ photons from GRBs is at 50 keV which is very close to the peak of the $^{241}Am$ that is 59.5 keV. The activity of the source at the time of the experiment was 471 kBq. The source was collimated to a beam that hit the surface of the scintillator on a circle with a radius of 10 mm. The distance of the source from the scintillator was 13.5 mm. 
+
+\begin{figure}[h!]
 \includegraphics[width=150.0mm]{images/irradiation.png}
 \caption{The $^{241}$Am $gamma$ source was placed in a collimator system as can be seen on the image}
 \end{figure}
 
-The $\gamma$ source that was used to test the experimental setup was choosen to be an $^{241}Am$. The reason for this is that the peak of energy spectrum of the $\gamma$ photons from GRBs is at 50 keV which is very close to the peak of the $^{241}Am$ that is 59.5 keV. The activity of the source at the time of the experiment was 471 kBq. The source was collimated to a beam that hit the surface of the scintillator on a circle with a radius of 10 mm. The distance of the source from the scintillator was 13.5 mm. Therefore the solid angle of the part of the whole sphere where $\gamma$s could be detected was 
+Therefore the solid angle of the part of the whole sphere where $\gamma$s could be detected was 
 $$\Theta = 2 \pi (1-cos(\theta)) = 1.234 sr$$
-
- Therefore the number of $\gamma$s that hit the scintillator, the Al and Pb sheets above it was:
-$$A = \frac{1.234}{4 \pi} \cdot 471 kBq = 46.25 kBq$$
 
 \pagebreak
 
 \subsection{2 channel read out setup}
 
-\begin{figure}[h!]
-\centering
-\includegraphics[width=130.0mm]{images/2channelsetup.png}[H!]
-\caption{The MPPCs for the 2 channel readout are positioned symmetrically from the center of the scintillator}
-\label{fig:schem}
-\end{figure}
+In order to maximize the light yield, thus the signal of the detector and minimize the noise with coincidence a 2 channel setup was tested.  In fig. \ref{fig:schem2c} this setup can be seen with the MPPCs placed symmetrically to the scintillator.
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=130.0mm]{images/2channelelectronics.png}
-\caption{The schematic design of the readout electronics of the 2 channel setup}
+\includegraphics[width=130.0mm]{images/2channelsetup.png}
+\caption{The MPPCs for the 2 channel readout are positioned symmetrically from the center of the scintillator}
+\label{fig:schem2c}
 \end{figure}
+
+The geometry of the two channel read out setup was simulated 
 
 \begin{figure}[h!]
 \centering
@@ -531,7 +471,7 @@ The direction of GRBs is isotropic in the sky as they are extragalactic objects.
 
 \begin{figure}[h!]
  \centering % \begin{center}/\end{center} takes some additional vertical space
- \includegraphics[width=.3\textwidth,origin=c,angle=0]{images/satellite.png}
+ \includegraphics[width=.35\textwidth,origin=c,angle=0]{images/satellite.png}
  \qquad
  \includegraphics[width=.5\textwidth,origin=c,angle=90]{images/cad_sat.png} 
  % "\includegraphics" from the "graphicx" permits to crop (trim+clip)
@@ -693,22 +633,38 @@ The energy bins had to be scaled up by a factor of 2.4 to match the experimental
 
 \pagebreak
 
-\subsection{Simulation of the signal induced by GRBs in the satellite}
+\subsection{Simulation of the signal induced by GRBs in the satellite} \label{sec:grb}
 
-One of the key questions is whether 
+One of the key questions is what would the satellite measure in space when the $\gamma$ photons of the GRB hit it. It is important to understand how the material of the satellite would absorb the $\gamma$ photons. 
+
+In order to quantify the detection, the number of particles detected was used as a measure. 10.000 $\gamma$ particles were shot at the detector paralelly on an area of 60cm x 60cm from several angles around the longitudinal axis of the satellite. This way the self absorption of the satellite was quantified.
+
+The energy spectra of $\gamma$ photons (called band function) from GRBs is fitted by the following equation \cite{band_func}:
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=130.0mm]{images/band_function.png}
+\label{eq:bandfunc}
+\end{center}
+\end{figure}
+
+where the parameters of the fit are following for GRB 990123:\\
+$\alpha = -0.87 \pm 0.01 $\\
+$\beta = -2.9 \pm 0.11$\\
+$E_{peak} = (617 \pm 7.09) keV$\\
+$A= (0.0262 \pm 0.0000993) s^{-1}cm^{-1}keV^{-1}$\\
+
 
 \subsection{Simulation of the cosmic background in space}
 
-SPENVIS \cite{spenvis}
+In order to understand what would give the measured background of the satellites, cosmic and solar protons and electrons were simulated in the same way as the $\gamma$ particles were in sec. \ref{sec:grb}. The flux of and energy distribution of protons and electrons vary widely in the lower orbits around Earth due to its magnetic field. The SPENVIS \cite{spenvis} information system was used to obtain the proton and electron energy spectra.
 
-"SPENVIS is ESA's SPace ENVironment Information System, a WWW interface to models of the space environment and its effects; including cosmic rays, natural radiation belts, solar energetic particles, plasmas, gases, and "micro-particles"."
+SPENVIS is ESA's SPace ENVironment Information System, a WWW interface to models of the space environment and its effects; including cosmic rays, natural radiation belts, solar energetic particles, plasmas, gases, and "micro-particles".
 
 \subsubsection{Proton background}
 
 
-
-
-500km_protons_max.txt 
+500km\_protons\_max.txt 
 13535.1
 minimum
 12076.5
@@ -717,6 +673,9 @@ minimum
 
 In order to include the resonances in the cross section of the hadron-hadron interactions, additional physics models are needed to be included in the simulation. The signal induced by these resonances might affect the measurement of the protons.
 
+The AE-8 model was used in SPENVIS to obtain the spatially avaraged proton energy spectra for an altitude of 500 km both for solar minimum and maximum. The inclination of the orbit was chosen to be 89 $^{\circ}$. At the moment hadron resonances are not taken into account in the simulation.
+
+In order to include the resonances in the cross section of the hadron-hadron interactions, additional physics models are needed to be included in the simulation. The signal induced by these resonances might affect the measurement of the protons.
 
 \begin{figure}[htbp]
  \centering % \begin{center}/\end{center} takes some additional vertical space
@@ -728,23 +687,19 @@ In order to include the resonances in the cross section of the hadron-hadron int
  \caption{\label{fig:band500e} The spatially avaraged band function (differential flux for a given energy band, solid line) and the integrated band function (dotted line) of electrons at an altitude of 500 km for solar minimum (left) and solar maximum (right) }
  \end{figure}
 
-
-Protons
-'Apogee: 500.0 km'
-'Perigee: 500.0 km'
-'Inclination: 89.0 deg'
-
 \subsection{Electron background}
 
-500km_electrons_min.txt
+500km\_electrons\_min.txt
 1.19384e+06
-500km_electrons  2.69537e+06
+500km\_electrons  2.69537e+06
 
 Electrons
 'Trapped electron model: AE-8 MIN'
 %'Energy','MeV','Energy'
 %'IFlux','cm^-2 s^-1','Integral Flux'
 %'DFlux','cm^-2 s^-1 MeV^-1','Differential Flux'
+
+The AE-8 model was used in SPENVIS to obtain the spatially avaraged elextron energy spectra for an altitude of 500 km both for solar minimum and maximum. The inclination of the orbit was chosen to be 89 $^{\circ}$. At the moment hadron resonances are not taken into account in the simulation.
 
 \begin{figure}[htbp]
  \centering % \begin{center}/\end{center} takes some additional vertical space
@@ -781,14 +736,6 @@ Electrons
 \includegraphics[width=150.0mm]{images/electronabsorption.png}[H!]
 \caption{The ammount of electrons detected from 100.000 shoot in the simulation}
 \end{figure}
-
-\subsubsection{$\gamma$ background}
-
-\pagebreak
-
-Put 4 spectra here from the 4 direction to the satellite. Quantify the detected photons by summing up all entries. Where should be the treshold?
-
-CHange the mass of the payload!
 
 \pagebreak
 
@@ -937,6 +884,9 @@ R. Willingale, P. Mészáros
 \bibitem{qe} http://www.hamamatsu.com/resources/pdf/ssd/s13360\_series\_kapd1052e.pdf
 
 \bibitem{esr} http://multimedia.3m.com/mws/media/466120O/esr.pdf
+ 
+\bibitem{band_func} https://arxiv.org/pdf/1311.7135.pdf
+ 
  
 \bibitem{spenvis} https://www.spenvis.oma.be/
 
