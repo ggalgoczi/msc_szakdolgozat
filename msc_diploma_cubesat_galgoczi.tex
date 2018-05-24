@@ -654,44 +654,77 @@ $\beta = -2.9 \pm 0.11$\\
 $E_{peak} = (617 \pm 7.09) keV$\\
 $A= (0.0262 \pm 0.0000993) s^{-1}cm^{-1}keV^{-1}$\\
 
-
-\subsection{Simulation of the cosmic background in space}
-
-In order to understand what would give the measured background of the satellites, cosmic and solar protons and electrons were simulated in the same way as the $\gamma$ particles were in sec. \ref{sec:grb}. The flux of and energy distribution of protons and electrons vary widely in the lower orbits around Earth due to its magnetic field. The SPENVIS \cite{spenvis} information system was used to obtain the proton and electron energy spectra.
-
-SPENVIS is ESA's SPace ENVironment Information System, a WWW interface to models of the space environment and its effects; including cosmic rays, natural radiation belts, solar energetic particles, plasmas, gases, and "micro-particles".
-
-\subsubsection{Proton background}
-
-
-500km\_protons\_max.txt 
-13535.1
-minimum
-12076.5
-
-
-
-In order to include the resonances in the cross section of the hadron-hadron interactions, additional physics models are needed to be included in the simulation. The signal induced by these resonances might affect the measurement of the protons.
-
-The AE-8 model was used in SPENVIS to obtain the spatially avaraged proton energy spectra for an altitude of 500 km both for solar minimum and maximum. The inclination of the orbit was chosen to be 89 $^{\circ}$. At the moment hadron resonances are not taken into account in the simulation.
-
-In order to include the resonances in the cross section of the hadron-hadron interactions, additional physics models are needed to be included in the simulation. The signal induced by these resonances might affect the measurement of the protons.
+Therefore the total flux from GRB 990123 at peak intensity was 9.866 photons for every $cm^{2}$ each second. The illuminated area in the simulation was 3600 cm$^{2}$. Thus the simulated 10.000 photons correspond to 282 $\mu$s. Therefore the number of particles detected in the simulation had to be multiplied by 3551.76 to achive the countnumber for a second.
 
 \begin{figure}[htbp]
  \centering % \begin{center}/\end{center} takes some additional vertical space
- \includegraphics[width=0.45\textwidth,origin=c,angle=0]{images/alt_500km_AE-8_MIN_averaged_spectra.png}
+ \includegraphics[width=0.45\textwidth,origin=c,angle=0]{images/gamma0mac.png}
  \qquad
- \includegraphics[width=.45\textwidth,origin=c]{images/alt_500km_AE-8_MAX_averaged_spectra.png} 
+ \includegraphics[width=.45\textwidth,origin=c]{images/gamma17mac.png} 
  % "\includegraphics" from the "graphicx" permits to crop (trim+clip)
  % and rotate (angle) and image (and much more)
- \caption{\label{fig:band500e} The spatially avaraged band function (differential flux for a given energy band, solid line) and the integrated band function (dotted line) of electrons at an altitude of 500 km for solar minimum (left) and solar maximum (right) }
+ \caption{\label{fig:band500e}  }
  \end{figure}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=130.0mm]{images/gammashittingsat.png}
+\label{eq:bandfunc}
+\end{center}
+\end{figure}
+
+\subsection{Simulation of the cosmic background in space}
+
+In order to understand what would give the measured background of the satellites, cosmic and solar electrons were simulated in the same way as the $\gamma$ particles were in sec. \ref{sec:grb}. The flux of and energy distribution of protons and electrons vary widely in the lower orbits around Earth due to its magnetic field. The SPENVIS \cite{spenvis} information system was used to obtain the proton and electron energy spectra.
+
+SPENVIS is ESA's SPace ENVironment Information System, a WWW interface to models of the space environment and its effects; including cosmic rays, natural radiation belts, solar energetic particles, plasmas, gases, and "micro-particles".
+
+%\subsubsection{Proton background}
+
+%500km\_protons\_max.txt 
+%13535.1
+%minimum
+%12076.5
+
+%In order to include the resonances in the cross section of the hadron-hadron interactions, additional physics models are needed to be included in the simulation. The signal induced by these resonances might affect the measurement of the protons.
+
+%The AE-8 model was used in SPENVIS to obtain the spatially avaraged proton energy spectra for an altitude of 500 km both for solar minimum and maximum. The inclination of the orbit was chosen to be 89 $^{\circ}$. At the moment hadron resonances are not taken into account in the simulation.
+
+%In order to include the resonances in the cross section of the hadron-hadron interactions, additional physics models are needed to be included in the simulation. The signal induced by these resonances might affect the measurement of the protons.
+
+%\begin{figure}[htbp]
+% \centering % \begin{center}/\end{center} takes some additional vertical space
+% \includegraphics[width=0.45\textwidth,origin=c,angle=0]{images/alt_500km_AE-8_MIN_averaged_spectra.png}
+% \qquad
+% \includegraphics[width=.45\textwidth,origin=c]{images/alt_500km_AE-8_MAX_averaged_spectra.png} 
+ % "\includegraphics" from the "graphicx" permits to crop (trim+clip)
+ % and rotate (angle) and image (and much more)
+% \caption{\label{fig:band500e} The spatially avaraged band function (differential flux for a given energy band, solid line) and the integrated band function (dotted line) of electrons at an altitude of 500 km for solar minimum (left) and solar maximum (right) }
+% \end{figure}
+
+%\begin{figure}[htbp]
+% \centering % \begin{center}/\end{center} takes some additional vertical space
+% \includegraphics[width=0.45\textwidth,origin=c,angle=0]{images/protons0mac.png}
+% \qquad
+% \includegraphics[width=.45\textwidth,origin=c]{images/protonshittingsat.png} 
+ % "\includegraphics" from the "graphicx" permits to crop (trim+clip)
+ % and rotate (angle) and image (and much more)
+ %\caption{\label{fig:band500e}}
+ %\end{figure}
+%\begin{figure}[h!]
+%\begin{center}
+%\includegraphics[width=130.0mm]{images/gammashittingsat.png}
+%\label{eq:bandfunc}
+%\end{center}
+%\end{figure}
+
 
 \subsection{Electron background}
 
-500km\_electrons\_min.txt
-1.19384e+06
-500km\_electrons  2.69537e+06
+%500km\_electrons\_min.txt
+%1.19384e+06
+%500km\_electrons  
+%2.69537e+06
 
 Electrons
 'Trapped electron model: AE-8 MIN'
@@ -759,7 +792,7 @@ Fourthly, the effect of cosmic radiation was invastigated by utilizing the energ
 
 \section{Acknowledgment}
 
-Gabor Galg\'oczi would like to thank Bal\'azs \'Ujv\'ari for the fruitful discussions they had on Geant4 simulations. Useful comments on detectors made Dezs\"o Varga's advices on detectors were highly appreciated. András Pál made vital comments on the description of the electronics. Last but not least the author would like to thank Norbert Werner for the continued contributions to this work.
+G\'abor Galg\'oczi would like to thank Bal\'azs \'Ujv\'ari for the fruitful discussions they had on Geant4 simulations. Useful comments on detectors made Dezs\"o Varga's advices on detectors were highly appreciated. Last but not least the author would like to thank Norbert Werner for the continued contributions to this work.
 
 \pagebreak
 
