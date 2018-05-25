@@ -158,21 +158,13 @@ The main aim of this thesis is to simulate the detection of $\gamma$-rays from G
 
 First the parameters of the simulation had to be fine tuned to reproduce the measured spectra in the laboratory. The simulation of the number of optical photons being deteted was sufficent to predict the signal as the electronic amplification is linear.
 
-The build up of the satellite is quite complex, consisiting of 9 modules, each with a specific material composition. Therefore the CAD model of the satellite was imported into Geant4 in order to understand how the satellite itself would affect the measurements. The "calibrated" scintillator afterwards was placed on the side of the satellite.
+The build up of the satellite is quite complex, consisiting of 7 modules, each with a specific material composition. Therefore the CAD model of the satellite was imported into Geant4 in order to understand how the satellite itself would affect the measurements. The "calibrated" scintillator afterwards was placed on the side of the satellite.
 
 Three cases were investigated. First, the model of the detector and the satellite was radiated with a parallel gamma beam that had the same parameters as GRB 9900123, the reference GRB chosen. The position of the source was rotated spherically around the satellite. In this way the absorbtion of $\gamma$s in the material of the satellite was investigated.
 
 Secondly the cosmic background induced by the protons and electrons was simulated. The energy spectrum of electrons and protons was obatined from the SPENVIS information system. The satellite was radiated with these given energy distributions and fluxes.
  
-We are designing a fleet of nanosatellites to perform accurate position determinations
-of short-duration gamma-ray bursts by measuring arrival time differences.
-To achieve sufficient photon statistics to measure the arrival times
-precisely under the severe limitations of size, mass, and power consumption,
-we propose the use of a large-area CsI scintillator that has high light output
-and the use of a small-sized multipixel photon counter (MPPC) that has low
-power consumption. We plan to use one of the latest-model MPPCs provided
-by Hamamatsu Photonics, which has an active area of 6  6 mm2. We have compared the performance of two scintillators of different sizes (150 75  5 mm3 and 100  75  5 mm3); the bigger one is the maximum size that can be mounted on a three-unit satellite, according to CubeSat standards.
-We have found that the two scintillators have similar light yields and each has an energy threshold of $\sim$10 keV at 25C. We have also examined the position dependence of the light yield by using radiation from 241Am (59.5 keV) source, and have confirmed that uniformity was improved by using two MPPCs for signal readout. 
+%We are designing a fleet of nanosatellites to perform accurate position determinations of short-duration gamma-ray bursts by measuring arrival time differences. To achieve sufficient photon statistics to measure the arrival times precisely under the severe limitations of size, mass, and power consumption, we propose the use of a large-area CsI scintillator that has high light output and the use of a small-sized multipixel photon counter (MPPC) that has low power consumption. We plan to use one of the latest-model MPPCs provided by Hamamatsu Photonics, which has an active area of 6  6 mm2. We have compared the performance of two scintillators of different sizes (150 75  5 mm3 and 100  75  5 mm3); the bigger one is the maximum size that can be mounted on a three-unit satellite, according to CubeSat standards. We have found that the two scintillators have similar light yields and each has an energy threshold of $\sim$10 keV at 25C. We have also examined the position dependence of the light yield by using radiation from 241Am (59.5 keV) source, and have confirmed that uniformity was improved by using two MPPCs for signal readout. 
  
 \pagebreak
 
@@ -436,6 +428,7 @@ The $\gamma$ source that was used to test the experimental setup was choosen to 
 \begin{figure}[h!]
 \includegraphics[width=150.0mm]{images/irradiation.png}
 \caption{The $^{241}$Am $gamma$ source was placed in a collimator system as can be seen on the image}
+\label{fig:this_set}
 \end{figure}
 
 Therefore the solid angle of the part of the whole sphere where $\gamma$s could be detected was 
@@ -454,13 +447,13 @@ In order to maximize the light yield, thus the signal of the detector and minimi
 \label{fig:schem2c}
 \end{figure}
 
-The geometry of the two channel read out setup was simulated 
+In order to simulate the satellite with the two channel read out setup, first this configuration was tested. The simulation of this setup can be seen in fig. \ref{fig:sim2ch}. The $\gamma$ source was collimated with a lead sheet that was drilled. The optical photons that were detected are shown only. The two read volumes correspond to the MPPCs.
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=160.0mm]{images/2channel.png}
+\includegraphics[width=130.0mm]{images/2channel.png}
 \caption{Simulation of 100 $\gamma$s emitted from the source. The blue lines represent the track of the $\gamma$s and the green lines represent the track of the optical photons created by scintillation. Only the photons that were detected are drawn.}
-\label{fig:sim_setup}
+\label{fig:sim2ch}
 \end{figure}
 
 \pagebreak
@@ -481,11 +474,6 @@ The direction of GRBs is isotropic in the sky as they are extragalactic objects.
 
 Importing predefined CAD models into GEANT4 is not always possible or requires intermediate file format conversion to Geometry Description Markup Language (GDML) using commercial or third party software. CADMesh \cite{cadmesh} is a direct CAD model import interface for GEANT4 leveraging ASSIMP \cite{assimp} for reading the CAD files. In this work the CAD model of the satellite was exported to STL files. These files were imported by the CADMesh software to Geant4. The tesselation was done by the TETGEN \cite{tetgen} software.
 
-\begin{figure}[h!]
-\includegraphics[width=150.0mm]{images/satellite_rad.png}
-\caption{The satellite radiated by a pencil beam of 10.000 $\gamma$ particles. The scattered $\gamma$s induce signal in the scintillator}
-\end{figure}
-
 \begin{table}[h!]
 \begin{center}
 \begin{tabular}{ |c|c|c|c|} 
@@ -503,12 +491,18 @@ EPS	& 	750	& 	FR4 Glass-Epoxy sheet		& 25\\
 OBC	&	50		& FR4 Glass-Epoxy sheet	& 	100\\\hline
 STRU	& 	980		& Aluminum 6061-T6	& 	100\\\hline
 SP	& 	570		& Solar Panel	& 	100\\\hline
-Payload	& 	1100	& 	As you wish	& 	100\\
+Payload	& 	100	& 	Aluminum 7075-T73	& 	100\\
  \hline
 \end{tabular}
 \end{center}
 \caption{The mass ratio of materials that are used for the satellite}
+\label{table:materials}
+
 \end{table}
+
+\pagebreak
+
+The material composition of the satellite can not be exported to Geant4 from CAD files directly. Therefore an avarage material composition was calculated for all the modules. In table $\ref{table:materials}$ the material composition of the 7 modules are listed. These materials, mostly alloys consist of several elements. The Geant4 cross section database is built up for elements. Therefore these materials had to be broken down to elements.
 
 \begin{table}[h!]
 \begin{center}
@@ -516,20 +510,27 @@ Payload	& 	1100	& 	As you wish	& 	100\\
  \hline
 %Material name & El. 1	& El. 1 m.r. & El. 2 & El. 2 m.r. &El.3	& El. 3 m.r. &El. 4	& El. 4 m.r. &El.	5& El. 5 m.r. &El.	6& El. 6 m.r. \\\hline
 Material name & &&&&&&&&&&& \\\hline
-
 Aluminum 6061-T6 &	Al & 96.90 &	Mg &	1.20 &	Si &	0.80 &	Fe &	0.70 &	Cu &	0.40 & &\\\hline		
 Aluminum 7075-T73 &	Al &	88.60 &	Zn &	6.10 &	Mg &	2.90 &	Cu &	2.00 &	Si &	0.40 & &\\\hline		
 %Stainless Steel A2-70  AISI 304 (EN 1.4301) &	Fe &	66.50 &	Cr &	20.00 &	Ni &	10.50	Mn &	2.00 &	Si &	1.00 & &\\\hline		
 Stainless Steel &	Fe &	66.50 &	Cr &	20.00 &	Ni &	10.50	&Mn &	2.00 &	Si &	1.00 & &\\\hline		
-Copper Electric  &Cu &	100.00 & & & & & & & & & &	\\\hline					
+Copper Electric  &Cu &	100.00 & & & & & & & & & &	\\\hline			
 Glass Borosilicate &	Si &	42.10 &	O &	54.80 &	B &	3.10 & & & & & &\\\hline			
 FR4 Glass-Epoxy &	Si &	23.39 &	O &	36.02 &	C &	37.04 &	H &	3.55 & & & &\\\hline		
 Brass Generic &	Cu &	85.00 &	Zn &	15.00 & & & & & & & &\\\hline						
 Solar Panel &	Ge &	38.00 &	Si &	24.00 &	O &	20.00 &	C &	13.00 &	H &	4.00 &	B &	1.00\\\hline
 \end{tabular}
 \end{center}
-\caption{The chemical composition of materials that are used for the satellite}
+\caption{The chemical composition of materials in mass fraction that are used for the satellite}
 \end{table}
+
+In fig. \ref{fig:sat_rad} the simulation of the satellite and the two channel read out setup can be seen. 100 $\gamma$ particles were used to shoot the satellite with a beam parralel to the plane of the scintillator. A scattered $\gamma$ particle can be seen being scattered into the scintillator and being detected.
+
+\begin{figure}[h!]
+\includegraphics[width=150.0mm]{images/satellite_rad.png}
+\caption{The satellite radiated by a parallel beam of 100 $\gamma$ particles. The scattered $\gamma$s induce signal in the detector.}
+\end{figure}
+\label{fig:sat_rad}
 
 \pagebreak
 
@@ -537,8 +538,6 @@ Solar Panel &	Ge &	38.00 &	Si &	24.00 &	O &	20.00 &	C &	13.00 &	H &	4.00 &	B &	1
 
 
 \subsection{Comparison of the results of the simulation with experiments}
-
-\pagebreak
 
 
 \subsubsection{X-ray fluorescence}
@@ -565,7 +564,7 @@ The main aim of this thesis is to predict what signal the satellite would measur
 \caption{The positions of irradiation for the investigation of the response of the scintillator}
 \end{figure}
 
-A lead sheet was drilled with nine holes to collimate the $\gamma$ source to certain parts of the scintillator. These measurements were carried out by Kento Torigoe at the University of Hiroshima. This configuration with a lead sheet was built up in Geant4 (fig. \ref{fig:sim_setup} and 3.6 million $\gamma$s were simulated at each position. 
+A lead sheet was drilled with nine holes to collimate the $\gamma$ source to certain parts of the scintillator. These measurements were carried out by Kento Torigoe at the University of Hiroshima. This configuration with a lead sheet was built up in Geant4 (fig. \ref{fig:this_set} and 3.6 million $\gamma$s were simulated at each position. 
 
 \begin{table}[h!]
 \begin{center}
@@ -583,9 +582,9 @@ A lead sheet was drilled with nine holes to collimate the $\gamma$ source to cer
 The three most relevant parameters of the setup in this case are the scintillation photon yield of the scintillator, the reflection rate of the ESR tape and the self-absorption of the scintillator. The photon yield was fixed to 540 $keV^{-1}$ taken from the data sheet of the scintillator \cite{scinti}. The self-absorption and the reflection rate was increased until the position dependence was the same as in the experiment (table. \ref{tabl:simulated}). 
 
 %ADC / energy calibration from measurement 20170829 illetve az egy chanellel: grb\_status3 
+\begin{center}
 
 \begin{table}[h!]
-\begin{center}
 \begin{tabular}{ |c|c|c|c|c|c|c|c|c|c| } 
 \hline
 Refl:& 0.995 & Abs.:& 50 cm   &  &  &  &  &  &  \\ 
@@ -615,18 +614,19 @@ Refl:& 0.9999 & Abs.:& 105 cm   &  &  &  &  &  &  \\
   Pos. of main peak & 0.6911 & 0.6865 & 0.6956 & 0.7002 & 0.6956 & 0.7002 & 0.6041 & 1 & 0.5955 \\ 
   \hline
 \end{tabular}
- \caption{The position of the Gaussian peak fitted to the 60 keV peak of the Am source for several irradiated positions}
+ \caption{The position of the Gaussian peak fitted to the 60 keV peak of the Am source for several irradiated positions. The last set of parameters fit the experimental data.}
  \label{tabl:simulated}
-\end{center}
 \end{table}
+\end{center}
 
-\subsubsection{Calibration of photon yield}
+\subsubsection{Calibration of the photon yield}
 
 In the simulation 3.6 million $\gamma$s were simulated. The measurement took 240 s. Therefore the number of photons emitted by the source was $\sim$ 11.0 million. The amplitude of the peaks in the energy spectrum of signal obtained by the MPPC depends mostly on three parameters. The absorption length of the scintillation light in the scintillator, the reflectivity of the surface and the scintillation photon yield of the scintillator. In order to obtain the histogram that we would measure by the MPPC, the histogram obtained by the simulation had to be scaled up both in amplitude and energy. (The introduction of an offset was not needed as the origin point of the histogram obtained in the measurements was shifted to zero energy.)
 
 \begin{figure}[h!]
 \includegraphics[width=150.0mm]{images/calibration_photon_yield.png}[H!]
 \caption{The spectra of 11 million photons taken experimentally (blue histogram) matched up with the results of the simulation (green histogram) and the Gaussian fitted to the simulated data}
+\label{fig:sim_res_calib}
 \end{figure}
 
 The energy bins had to be scaled up by a factor of 2.4 to match the experimental results. The amplitude had to be scaled up by a factor of 26.2.
@@ -656,6 +656,20 @@ $A= (0.0262 \pm 0.0000993) s^{-1}cm^{-1}keV^{-1}$\\
 
 Therefore the total flux from GRB 990123 at peak intensity was 9.866 photons for every $cm^{2}$ each second. The illuminated area in the simulation was 3600 cm$^{2}$. Thus the simulated 10.000 photons correspond to 282 $\mu$s. Therefore the number of particles detected in the simulation had to be multiplied by 3551.76 to achive the countnumber for a second.
 
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=130.0mm]{images/gammashittingsat.png}
+\label{eq:diffpos}
+\caption{The number of detections from the 10.000 $\gamma$ shoot in the simulation depending on the position of the GRB with respect to the longitudinal axis of the satellite.}
+\end{center}
+\end{figure}
+
+As one expects the most $\gamma$s ($\sim$ 200) are detected when these particles hit the scintillator directly, with a perpendicular direction to the surface of the satellite. The effective area of the scintillator is the largest in this case and the $\gamma$s are not absorbed by the material of the satellite. 
+
+The worst case scenario is then the $\gamma$s hit the satellite with a direction parallel with the plane of the scintillator. Although some detections ($\sim$ 20) occur even in this case because $\gamma$s that scatter in the material of the satellite can be detected. In fig. \ref{fig:diffpos} one can see the number of detections from 10.000 $\gamma$s shot at the detector for a given position of the GRB. 
+
+In fig. $\ref{fig:mac17hits}$ one can see the comparison between the energy spectrum measured when the $\gamma$s hit the scintillator with a perpendicular direction and when they hit the satellite from behind. The difference between these two scenarious is that $\gamma$s had to travel through the material of the satellite in the second case. About 60 \% of gammas are lost do the absorption of the satellite.
+
 \begin{figure}[htbp]
  \centering % \begin{center}/\end{center} takes some additional vertical space
  \includegraphics[width=0.45\textwidth,origin=c,angle=0]{images/gamma0mac.png}
@@ -663,15 +677,9 @@ Therefore the total flux from GRB 990123 at peak intensity was 9.866 photons for
  \includegraphics[width=.45\textwidth,origin=c]{images/gamma17mac.png} 
  % "\includegraphics" from the "graphicx" permits to crop (trim+clip)
  % and rotate (angle) and image (and much more)
- \caption{\label{fig:band500e}  }
+ \caption{The measured spectrum when the $\gamma$s had to pass through the material of the satellite (right) and when they hit the scintillator directly (left)  \label{fig:mac17hits}}
  \end{figure}
 
-\begin{figure}[h!]
-\begin{center}
-\includegraphics[width=130.0mm]{images/gammashittingsat.png}
-\label{eq:bandfunc}
-\end{center}
-\end{figure}
 
 \subsection{Simulation of the cosmic background in space}
 
@@ -726,13 +734,11 @@ SPENVIS is ESA's SPace ENVironment Information System, a WWW interface to models
 %500km\_electrons  
 %2.69537e+06
 
-Electrons
-'Trapped electron model: AE-8 MIN'
 %'Energy','MeV','Energy'
 %'IFlux','cm^-2 s^-1','Integral Flux'
 %'DFlux','cm^-2 s^-1 MeV^-1','Differential Flux'
 
-The AE-8 model was used in SPENVIS to obtain the spatially avaraged elextron energy spectra for an altitude of 500 km both for solar minimum and maximum. The inclination of the orbit was chosen to be 89 $^{\circ}$. At the moment hadron resonances are not taken into account in the simulation.
+The AE-8 model was used in SPENVIS to obtain the spatially avaraged elextron energy spectra for an altitude of 500 km both for solar minimum and maximum. The inclination of the orbit was chosen to be 89 $^{\circ}$. %At the moment hadron resonances are not taken into account in the simulation.
 
 \begin{figure}[htbp]
  \centering % \begin{center}/\end{center} takes some additional vertical space
@@ -741,9 +747,10 @@ The AE-8 model was used in SPENVIS to obtain the spatially avaraged elextron ene
  \includegraphics[width=.45\textwidth,origin=c]{images/alt_500km_AP-8_MAX_averaged_spectra.png} 
  % "\includegraphics" from the "graphicx" permits to crop (trim+clip)
  % and rotate (angle) and image (and much more)
- \caption{\label{fig:band500p} The spatially avaraged band function (differential flux for a given energy band, solid line) and the integrated band function (dotted line) of protons at an altitude of 500 km for solar minimum (left) and solar maximum (right) }
+ \caption{\label{fig:electrs} The spatially avaraged band function (differential flux for a given energy band, solid line) and the integrated band function (dotted line) of protons at an altitude of 500 km for solar minimum (left) and solar maximum (right) }
  \end{figure}
 
+The integrated and differential spectra of electrons can be seen in fig. \ref{fig:electrs}. For the simulation the worst case scenario, the spectrum at solar maximum was utilized. Fig. \ref{fig:iii} shows the energy spectrum for the simulation of 0$^{\circ}$ when electrons hit the scintillator with a perpendicular direction. 
 
 \begin{figure}[h!]
 \centering % \begin{center}/\end{center} takes some additional vertical space
@@ -752,18 +759,10 @@ The AE-8 model was used in SPENVIS to obtain the spatially avaraged elextron ene
 \includegraphics[width=.4\textwidth,origin=c,angle=90]{images/0mac.png} 
 % "\includegraphics" from the "graphicx" permits to crop (trim+clip)
 % and rotate (angle) and image (and much more)
-\caption{\label{fig:i} The spectrum measured when the electrons were shot perpendicular to the scintillator (called angle of 0 $^{\circ}$)}
+\caption{\label{fig:iii} The spectrum measured when the electrons were shot perpendicular to the scintillator (called angle of 0 $^{\circ}$)}
 \end{figure}
 
-\begin{figure}[h!]
-\centering % \begin{center}/\end{center} takes some additional vertical space
-\includegraphics[width=.3\textwidth,origin=c,angle=0]{images/satellite.png}
-\qquad
-\includegraphics[width=.5\textwidth,origin=c,angle=90]{images/8mac.png} 
-% "\includegraphics" from the "graphicx" permits to crop (trim+clip)
-% and rotate (angle) and image (and much more)
-\caption{\label{fig:i} The CAD model of the satellite (on the right) and the view of the imported model in Geant (on the left)}
-\end{figure}
+The total flux from the spectrum taken from SPENVIS (fig. \ref{fig:electrs})for 1 s and a cm$^{2}$ was 2.695.370.
 
 \begin{figure}[h!]
 \includegraphics[width=150.0mm]{images/electronabsorption.png}[H!]
@@ -782,11 +781,9 @@ Secondly, the complex CAD model of the satellite --consisting of 7 modules, each
 
 Thirdly, the $\gamma$ absorption of the satellite was invastigated. Parallel $\gamma$-rays with a flux and energy distribution of GRB 9900123 (fig. \ref{fig:grb_band}) was simulated. 36 positions were investigated by varying the incident angle of the $\gamma$s around the major axis of the satellite.
 
-The results show...
+Fourthly, the effect of cosmic radiation was invastigated by utilizing the energy spectra of cosmic electrons at the altitude of 500km. The satellite was radiated by these particles in Geant4 in the same positions that were used for the $\gamma$-rays of GRB 9900123. The induced signal of these particles was determined. This needs to be minimalized as it "competes" with the signal of gamma particles from GRBs.
 
-
-Fourthly, the effect of cosmic radiation was invastigated by utilizing the energy spectra of cosmic protons and electrons at the altitude of 500km. The satellite was radiated by these particles in Geant4 in the same positions that were used for the $\gamma$-rays of GRB 9900123. The induced signal of these particles was determined. This needs to be minimalized as it "competes" with the signal of gamma particles from GRBs.
-
+The results of the simulation of the full satellite shows that the satellite is clearly capable of detecting a GRB with a high signal to noise ratio. The effect of absorption can reduce the light yield by 60 \%. The effect of the electron background was also quantified. It is negligable with comparison to the signal induced by the $\gamma$ of the GRBs. 
 
 \pagebreak
 
