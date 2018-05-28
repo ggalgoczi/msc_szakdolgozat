@@ -154,25 +154,25 @@ WIGNER Fizikai Kutatóközpont - MTA\\
 
 \section{Introduction}
 
-The main aim of this thesis is to simulate the detection of $\gamma$-rays from GRBs with the Constellation Gamma (Camelot) CubeSat(s) (miniaturized satellites) being developed by C3S LLC, Budapest. The Geant4 simulation described in this paper also predicts the background signal originating from solar and cosmic protons and electrons. 
+The main aim of this thesis is to simulate the detection of $\gamma$-rays from GRBs for the CAMELOT (Cubesats Applied for MEasuring and LOcalising Transients) mission. This CubeSat (miniaturized satellite) is being developed by C3S LLC, in Budapest. The Geant4 simulation described in this paper also predicts the background signal originating from solar and cosmic electrons. 
 
-First the parameters of the simulation had to be fine tuned to reproduce the measured spectra in the laboratory. The simulation of the number of optical photons being deteted was sufficent to predict the signal as the electronic amplification is linear.
+The simulation was first validated by comparing the spectrum of an $^{241}$Am source measured in laboratory with the spectrum obtained with the simulation. Secondly the photon yield dependence of the position of the source above the scintillator detector was determined by the simulation. The results agreed with the experimental data.
 
-The build up of the satellite is quite complex, consisiting of 7 modules, each with a specific material composition. Therefore the CAD model of the satellite was imported into Geant4 in order to understand how the satellite itself would affect the measurements. The "calibrated" scintillator afterwards was placed on the side of the satellite.
+The satellite consists of seven modules, each with a specific material composition. Therefore the CAD model of the satellite had to be imported into the simulation in order to understand how the satellite itself would affect the measurements. The validated scintillator afterwards was placed on the side of the satellite in the simulation.
 
-Three cases were investigated. First, the model of the detector and the satellite was radiated with a parallel gamma beam that had the same parameters as GRB 9900123, the reference GRB chosen. The position of the source was rotated spherically around the satellite. In this way the absorbtion of $\gamma$s in the material of the satellite was investigated.
+The detector and the satellite was radiated with a parallel $\gamma$-rays. The energy spectrum of these particles was chosen to be the same as GRB 9900123. In order to understand  how the satellite would absorb the $\gamma$-rays several simulations were carried out by chaning the incident angle of the beam around the longitudinal axis of the satellite.
 
-Secondly the cosmic background induced by the protons and electrons was simulated. The energy spectrum of electrons and protons was obatined from the SPENVIS information system. The satellite was radiated with these given energy distributions and fluxes.
- 
+Secondly the effect of solar and cosmic electrons was investigated. The satellite was radiated by electrons with an energy distribution obtained from the SPENVIS information system. This distribution represents the energy spectrum of electrons in polar orbit 500 km above the surface of Earth.
+
 %We are designing a fleet of nanosatellites to perform accurate position determinations of short-duration gamma-ray bursts by measuring arrival time differences. To achieve sufficient photon statistics to measure the arrival times precisely under the severe limitations of size, mass, and power consumption, we propose the use of a large-area CsI scintillator that has high light output and the use of a small-sized multipixel photon counter (MPPC) that has low power consumption. We plan to use one of the latest-model MPPCs provided by Hamamatsu Photonics, which has an active area of 6  6 mm2. We have compared the performance of two scintillators of different sizes (150 75  5 mm3 and 100  75  5 mm3); the bigger one is the maximum size that can be mounted on a three-unit satellite, according to CubeSat standards. We have found that the two scintillators have similar light yields and each has an energy threshold of $\sim$10 keV at 25C. We have also examined the position dependence of the light yield by using radiation from 241Am (59.5 keV) source, and have confirmed that uniformity was improved by using two MPPCs for signal readout. 
  
 \pagebreak
 
 \subsection{Gamma-ray bursts}
 
-Gamma-ray bursts (GRBs) \cite{grb1,grb2,grb3,grb4} are one of the most invesitaged and yet less understood astrophysical objects. The have been studied for more than fourty years as one of the most extreme explosive events in the Universe. Their origin is still not yet fully understood. GRBs were discovered in years 1967–73 by military satellites. The scientific community only got to know their existance in the early seventies \cite{grb5}. A GRB event is brighter than any other object in the sky during their appearance that can last from millisecond to minutes. Every day the a new GRB is observed by the satellites investigating them. The main part of the energy spectrum of these events is from the keV to the MeV ranges.
+Gamma-ray bursts (GRBs) \cite{grb1,grb2,grb3,grb4} are one of the most invesitaged and yet least understood astrophysical objects. They have been studied for more than fourty years as one of the most extreme explosive events in the Universe. Their origin is still not yet fully understood. GRBs were discovered in 1967–73 by military satellites. The scientific community only got to know their existance in the early seventies \cite{grb5}. A GRB event is brighter than any other object in the sky during its appearance that can last from a millisecond to minutes. Every day a new GRB is observed by the satellites investigating them. The main part of the energy spectrum of these events in the keV to the MeV ranges.
 
-After a decade of investigation it was found that these events can be categorized into two groups by their length \cite{grb6,grb7,grb8}. The first group is called long GRBs with softer spectrum and with prompt $\gamma$-ray emission of $\geqslant$2 s. These GRBs were linked to the gravitational collapses of massive stars. These objects are associated  with type Ic core-collapse supernovae. The second group of GRBs are called short GRBs as their prompt $\gamma$-ray emission lasts $\leqslant$2 s. These objects also pocess a harder spectrum. They were linked to the merge of two very compact objects, such as neutron star - neutron star (NS-NS) and neutron star - black hole (NS-BH) mergers \cite{grb9}.
+After a decade of investigation it was found that these events can be categorized into two groups by their length \cite{grb6,grb7,grb8}. The first group is called long GRBs with softer spectrum and with prompt $\gamma$-ray emission of $\geqslant$2 s. These GRBs were linked to the gravitational collapses of massive stars. These objects are associated with type Ic core-collapse supernovae. The second group of GRBs are called short GRBs as their prompt $\gamma$-ray emission lasts $\leqslant$2 s. These objects also posess a harder spectrum. They were linked to the merge of two very compact objects, such as neutron star - neutron star (NS-NS) and neutron star - black hole (NS-BH) mergers \cite{grb9}.
 
 
 \begin{figure}[H]
@@ -181,7 +181,7 @@ After a decade of investigation it was found that these events can be categorize
 \caption{The life cycle of a massive star. When fusion stops the collapsing star releases energy in the form of jets observed as a gamma-ray burst}
 \end{figure}
 
-One of the most accepted theories describe GRBs as collisions of highly relativistic outflow of the accelerated jetted matter \cite{grb10}. For most of the observed GRBs the prompt $\gamma$-ray emission was followed by longer-lasting afterglow in soft X-ray, optical or radio waves \cite{grb11}. This is due to the propagation of a relativistic shockwave through the medium that surrounds the burst. Obsrvations proved that GRBs are at cosmological distances \cite{grb12}. The farthest GRB observed was at a distance of z=9.4. The avarge short GRBs lie at a distance of z=0.5. The long GRBs are even farther away, on avarage at z=2. The energy that is released is tremendous, about 10 erg. Long GRBs have been linked to the brightest regions of galaxies that contains the the most massive stars \cite{grb14}. %The relativistic outflow of LGRBs has a bulk Lorentz factor of $\Gamma\sim$300 [5]. The afterglow observations indicate that a geometrical beaming of the LGRBs radiation has an opening angle of $\sim$5 \cite{grb15}.
+One of the most accepted theories describe GRBs as collisions of highly relativistic outflow of the accelerated jets \cite{grb10}. For most of the observed GRBs the prompt $\gamma$-ray emission was followed by a longer-lasting afterglow in soft X-ray, optical or radio waves \cite{grb11}. This is due to the propagation of a relativistic shockwave through the medium that surrounds the burst. Observations proved that GRBs are at cosmological distances \cite{grb12}. The farthest GRB observed was at a distance of z=9.4. The avarge short GRBs lie at a distance of z=0.5. The long GRBs are even farther away, on avarage at z=2. The energy that is released in such an event is tremendous, about 10 erg. Long GRBs have been linked to the brightest regions of galaxies those contain the the most massive stars \cite{grb14}. %The relativistic outflow of LGRBs has a bulk Lorentz factor of $\Gamma\sim$300 [5]. The afterglow observations indicate that a geometrical beaming of the LGRBs radiation has an opening angle of $\sim$5 \cite{grb15}.
 
 \begin{figure}[H]
 \centering
@@ -189,7 +189,7 @@ One of the most accepted theories describe GRBs as collisions of highly relativi
 \caption{The light curves of 12 gamma-ray bursts observed by BATSE. The diversity of the curves is extraordinary. Events with a length from millisecond to a second exist either with smooth or highly variable curves.}
 \end{figure}
 
-On the contrary, short GRBs are thought to originate in old populations. The theory that they originate from the merging of two neutron stars has been recently confirmed by detecting the gravitational waves of such an event. This was detected by the LIGO/Virgo collaboration in 2017 \cite{gravwave}. The electromagnetic counterpart of this gravitational wave event was detected as a short GRB by the Fermi/Gamma-ray Burst Monitor (GBM) and INTEGRAL instruments followed by the observation of the GRB’s afterglow and its host galaxy \cite{grb17}. Short GRBs emit electromagnetic radiation due to the radioactive decay of heavy r-process nuclei that are produced and ejected almost isotropically during the merger process \cite{grb18}.
+On the contrary, short GRBs are thought to originate in old populations. The theory that they originate from the merging of two neutron stars has been recently confirmed by detecting the gravitational waves of such events. This was detected by the LIGO/Virgo collaboration in 2017 \cite{gravwave}. The electromagnetic counterpart of this gravitational wave event was detected as a short GRB by the Fermi/Gamma-ray Burst Monitor (GBM) and INTEGRAL instruments followed by the observation of the GRB’s afterglow and its host galaxy \cite{grb17}. Short GRBs emit electromagnetic radiation due to the radioactive decay of heavy r-process nuclei that are produced and ejected almost isotropically during the merger process \cite{grb18}.
 
 \begin{figure}[H]
 \centering
@@ -200,16 +200,15 @@ On the contrary, short GRBs are thought to originate in old populations. The the
 
 \subsection{Open questions on gamma-ray bursts}
 
-
 Despite the fact that GRBs have been studied for more than fourty years a lot of questions are still not understood about their physics\cite{grb19}. In the following the main open questions are listed:
 
 \begin{itemize}
 \item{Classification: some of the observed light curves can not be classified into short and long GRBs, such as the ultra-long GRBs.}
-\item{Central engine: in most cases it is thought that a black hole is formed after the merging of neutron stars and core collapse of massive starts. Although there are models that predict the birth of a magnetar. The most exotic theories predict the birth of a quark star that has never yet been observed.}
-\item{Acceleration mechanism of the jets: How particles are accelerated to a velocity of Lorentz-factor of 300 in the shock waves is not yet understood.}
-\item{GRB jet composition: there are two possible driving forces behind the acceleration of jet material. The first one is magnetic field dominated and the other one is dominated by baryons. As the acceleration of particles is not yet fully understood, it is not known whether protons can be accelerated to ultra-high energies. These could produce Ultra-High Energy Cosmic Rays.} 
+\item{Central engine: in most cases it is thought that a black hole is formed after the merging of neutron stars and core collapse of massive stars. Although there are models that predict the birth of a magnetar. The most exotic theories predict the birth of a quark star that has never yet been observed.}
+\item{Acceleration mechanism of the jets: How particles are accelerated to a velocity of a Lorentz-factor of 300 in the shock waves is not yet understood.}
+\item{GRB jet composition: there are two possible driving forces behind the acceleration of jet material. The first one is magnetic field dominated and the other one is dominated by baryons. As the acceleration of particles is not yet fully understood, it is not known whether protons can be accelerated to ultra-high energies or not. These could produce Ultra-High Energy Cosmic Rays.} 
 \item{Radiation mechanism: there are several physical processes that create the $\gamma$-ray spectrum of GRBs, that is called  the "Band" function. The following three processes are though to be the main contributors to the spectrum: synchrotron radiation, synchrotron self-compton radiation and Compton up-scattering of thermal photons.}
-\item{First stars: different population of stars on avarage have different masses. Models predit that population III stars end their life with a black hole that has a mass about ten times bigger than population I and II stars. The progenitors of GRBs can be classified into populations by their redshift \cite{grb20}.}
+\item{First stars: different population of stars on avarage have different masses. Models predict that population III stars end their life with a black hole that has a mass about ten times bigger than population I and II stars. The progenitors of GRBs can be classified into populations by their redshifts \cite{grb20}.}
 
 \end{itemize}
 
@@ -217,41 +216,41 @@ Despite the fact that GRBs have been studied for more than fourty years a lot of
 
 Multi-messenger astronomy is based on the investigation of astronomical objects with disparate "messengers". It opened a possibility gather information in different ways to understand astrophysical objects. Until 2017 the three messenger were electromagnetic radiation, cosmic rays and neutrinos. 2017 opened a new era in multi-messenger astronomy as the electromagnetic counterpart of GW signal GW170817 was detected by the LIGO/Virgo collaboration. The source of this signal was the short GRB 170817A \cite{grb21}, a binary neutron star merger \cite{grb17}. 
 
-This historical detection occured on August 17, 2017. The Fermi satellite detected the (short) GRB 170817A, approximately 1.7 s before to the detection of the GRB, LIGO-Virgo detector network observed a GW signal GW170817. The origin of this source was a neutron-neutron star merger. The source was localized  in a sky region of 28 deg$^{2}$ (with 90 \% confidence). 
+This historical detection occured on August 17, 2017. The Fermi satellite detected the (short) GRB 170817A, approximately 1.7 s after the LIGO-Virgo detector network observed a GW signal GW170817. The origin of this source was a neutron-neutron star merger. The source was localized  in a sky region of 28 deg$^{2}$ (with 90 \% confidence). 
 
-After the detection of the GRB signal, several space and earth based observatories in a wide range of wavelengths started the investigation of the source. The discovery of a bright optical transient linked to the GRB was discovered in NGC 4993. Observatories involved in the investigation included Chandra X-ray Observatory \cite{grb23}, INTEGRAL \cite{grb22}, Swift and Nuclear Spectroscopic Telescope ARray (NuSTAR). A blue kilonova associated with this event was detected \cite{grb24}. It is important to emphasize that not only neutron-neutron star mergers but neutron star-black hole and black hole-black hole mergers can emit electromagnetic signal \cite{grb25}. Therefore all short GRBs can be investigated with multi-messenger astronomy in the future. As LIGO is constantly upgrading its detectors, gravitational waves will be detected more often. An even more sensitive gravitational wave detector is under building callled Kamioka Gravitational Wave Detector (KAGRA). First scientific measurements will be taken in the 2020s \cite{grb26}.
+After the detection of the GRB signal, several space and earth based observatories in a wide range of wavelengths started the investigation of the source. The discovery of a bright optical transient linked to the GRB was discovered in NGC 4993. Observatories involved in the investigation included Chandra X-ray Observatory \cite{grb23}, INTEGRAL \cite{grb22}, Swift and Nuclear Spectroscopic Telescope ARray (NuSTAR). A blue kilonova associated with this event was detected \cite{grb24}. It is important to emphasize that not only neutron-neutron star mergers but neutron star-black hole and black hole-black hole mergers can emit electromagnetic signal \cite{grb25}. Therefore all short GRBs can be investigated with multi-messenger astronomy in the future. As LIGO is constantly upgrading its detectors, gravitational waves will be detected more often. An even more sensitive gravitational wave detector is under construction, callled Kamioka Gravitational Wave Detector (KAGRA). First scientific measurements will be taken in the 2020s \cite{grb26} with this device.
 
 \subsection{Particle detectors in space}
 
-Almost all types of detectors starting from semiconductor based detectors to gas-filled detectors have been used in space. In the case of search for GRBs the detection of x-rays is the most relevant. Several types of detectors can be used for detecting $\gamma$ photons\cite{grb30}, for example the semiconductor based  German Position Sensitive Proportional Counters (PSPC) of the ROSAT X-ray telescope. For our satellite the size of the detector is limited, therefore the best option was the usage of scintillators. Mostly used scintillators in space include inorganic crystal scintillators, for example NaI(Tl) or CsI(Tl), and plastic scintillators. CsI(Tl) was chosen as the detector of the Camelot CubeSat due to it's high light yield.
+Almost all types of detectors starting from semiconductor based detectors to gas-filled detectors have been used in space. In the case of search for GRBs the detection of x-rays is the most relevant. Several types of detectors can be used for detecting $\gamma$ photons\cite{grb30}, for example the semiconductor based  German Position Sensitive Proportional Counters (PSPC) of the ROSAT X-ray telescope. For our satellite the size of the detector is limited, therefore the best option was to choose scintillators. Mostly used scintillators in space include inorganic crystal scintillators, for example NaI(Tl) or CsI(Tl), and plastic scintillators. CsI(Tl) was chosen as the detector of the Camelot CubeSat due to its high light yield.
 
 \subsection{Current missions observing gamma-ray bursts}
 
-This subsection provides an overview of the existing missions that are aimed to detect GRBs. Field of view (FOV) an localization accuracy are chosen to compare them with the Camelot CubeSat. The proposed design of the Camelot satellite has the advantage of a large field of view and a high localization accuray. The main idea is that each CubeSat will detect GRBs at the same time. By measuring the time difference between the triggering of each satellite, the GRB soure can be triangularized. By using more satellites, the field of view will be the full-sky and localization accuracy increases.
+This subsection provides an overview of the existing missions that are aimed to detect GRBs. Field of view (FOV) and localization accuracy are chosen to compare them with the Camelot CubeSat. The proposed design of the Camelot satellite has the advantage of a large field of view and a high localization accuray. The main idea is that each CubeSat will detect GRBs at the same time. By measuring the time difference between the triggering of each satellite, the GRB soure can be triangularized. By using more satellites, the field of view becomes full-sky and localization accuracy increases.
 
-The planed localization accuracy is more precise than any other existing GRB mission, that might reach $\sim$10'. While providing the highest lcoalization accuray, the field of view would also the be the highest, even larger than the field of view of the INTEGRAL/SPI-ACS and Fermi.
+The planed localization accuracy is more precise than any other existing GRB mission, that might reach $\sim$10'. While providing the highest lcoalization accuracy, the field of view would also be the highest, even larger than the field of view of the INTEGRAL/SPI-ACS and Fermi.
 
 The size and mass of the Camelot CubeSat is less than 1\% of the Fermi telescope. Therefore from a fraction of the cost several satellites could be built and deployed in orbit. Having several satellites also provide a high redundance.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=130.0mm]{images/fovvsloc.png}
-\caption{The field of view and localization accuracy of several missions including the Camelot CubeSat.}
+\caption{The field of view and localization accuracy of several missions including the CAMELOT CubeSat.}
 \end{figure}
 
 The following list includes the most relevant, currently ongoing missions looking for GRBs:
 
 \begin{itemize}
-\item Fermi 7 \cite{grb28} was launched in 2008 and its main instruments are Gamma-ray Burst Monitor and the Large Area Telescope (LAT). 
-\item Neil Gehrels Swift Observatory (Swift) 8 \cite{grb31} was launched in 2005 and its main instruments are Burst Alert Telescope (BAT), X-ray Telescope (XRT), and UV/Optical Telescope (UVOT).
+\item Fermi 7 \cite{grb28} was launched in 2008 and its main instruments are the Gamma-ray Burst Monitor and the Large Area Telescope (LAT). 
+\item Neil Gehrels Swift Observatory (Swift) 8 \cite{grb31} was launched in 2005 with its main instruments, those are the Burst Alert Telescope (BAT),  the X-ray Telescope (XRT), and the UV/Optical Telescope (UVOT).
 \item INTErnational Gamma-Ray Astrophysics Laboratory (INTEGRAL) 9 \cite{grb32} was launched in 2002. The most succesfull instruments on board include are the Anti-Coincidence Shield of the SPectrometer of INTEGRAL (SPI-ACS) and the Integral Soft Gamma-Ray Imager (ISGRI) detector layer of the "Imager on Board the Integral Satellite (IBIS)" detector.
 \item Astro-Rivelatore Gamma a Immagini Leggero (AGILE) 11 \cite{grb34} was launched in 2007 and its Hard X-ray Imaging Detector (Super-AGILE) detected several GRBs.
 \item CALorimetric Electron Telescope (CALET) 12 \cite{grb35} / Gamma-Ray Burst Monitor (CGBM), was launched in 2015 and it is placed on the International Space Station (ISS).
-\item Monitor of All-sky X-ray Image (MAXI) 13 \cite{grb36}, started nominal observation in 2009. Its instrument Gas Slit Camera (GSC) detects GRBs. The instrument is placed on ISS.
-\item Gamma-ray Burst Polarimeter POLAR 14 \cite{grb37}, was launched in 2016 and is dedicated to the measurement of GRB polarization.
+\item Monitor of All-sky X-ray Image (MAXI) 13 \cite{grb36}, started nominal observation in 2009. Its instrument Gas Slit Camera (GSC) detects GRBs. This instrument is placed on ISS.
+\item Gamma-ray Burst Polarimeter POLAR 14 \cite{grb37}, was launched in 2016 and is dedicated to the measurement of $\gamma$-rayGRB polarization.
 \item Lomonosov 15 /BDRG \cite{grb38}, was launched in 2016. The BDRG instrument on board detected several GRBs.
-\item The Hard X-ray Modulation Telescope (Insight-HXMT) 16 \cite{grb39}, was launched in 2017. It has on board the high energy X-ray telescope (HE), the medium energy X-ray telescope, and the low energy X-ray telescope.
-\item ASTROSAT 17 \cite{grb40}, was launched in 2015 and its Cadmium Zinc Telluride Imager (CZTI) has already detected many GRBs.
+\item The Hard X-ray Modulation Telescope (Insight-HXMT) 16 \cite{grb39} was launched in 2017. It has the high energy X-ray telescope (HE), the medium energy X-ray telescope, and the low energy X-ray telescope.
+\item ASTROSAT 17 \cite{grb40} was launched in 2015 and its Cadmium Zinc Telluride Imager (CZTI) has already detected many GRBs.
 \item Reuven Ramaty High Energy Solar Spectroscopic Imager (RHESSI) 18 \cite{grb41}, was launched in 2002. It is designed to study hard x-ray and gamma-ray emission from solar flares, however it is also efficient instrument to detect non-solar gamma-ray events like GRBs.
 \end{itemize}
 
@@ -273,7 +272,7 @@ The following list includes the most relevant, currently ongoing missions lookin
 
 \subsection{The CAMELOT satellite}
 
-The CAMELOT satellite platform is being developed by C3S LLC, Budapest. There would most likely be four scintillators on the CAMELOT satellite. On two neighbouring sides of the satellite have two scintillators each. The scintillator will have a case either from aluminium or carbon fibre.
+The CAMELOT satellite platform is being developed by C3S LLC, in Budapest. There would most likely be four scintillators on the CAMELOT satellite. On two neighbouring sides of the satellite have two scintillators each. The scintillators will have a case either from aluminium or carbon fibre.
 
 \begin{figure}[H]
 \centering
@@ -281,15 +280,14 @@ The CAMELOT satellite platform is being developed by C3S LLC, Budapest. There wo
 \caption{The modules of the satellite (Courtesy of C3S LLC) \cite{drawing}}
 \end{figure}
 
-The Camelot satellite will consist of the following modules:
+The CAMELOT satellite will consist of the following modules:
 
 \begin{itemize}
-\item On-Board Computer [OBC] is responsible for control all the satellite’s sub-systems. OBC collects housekeeping and payload data and archives them in its internal storage.
+\item On-Board Computer [OBC] is responsible for the control of all the satellite’s sub-systems. OBC performs housekeeping and collects payload data and archives it in its internal storage.
 \item Electrical Power System [EPS] is responsible for managing primary and secondary power sources and distributing power at appropriate voltage levels to on-board subsystems.
-\item COM UHF Transceiver [COM] provides an RF communication link between the Ground Segment and the satellite. The COM codes the received messages from the OBC and transmits to the Ground Segment. Furthermore, the COM decodes the received RF messages from the Ground Segment and transmits to the OBC.
-\item Attitude Determination and Control System [ADCS] determines and controls the satellite attitude.
-\item Auxiliary Electronics [AUX] subsystems control the deploying mechanisms and monitor the
-solar arrays. The Aux subsystem also contains the rigid backplane of the satellite; therefore, it also connects the subsystems.
+\item COM UHF Transceiver [COM] provides an RF communication link between the Ground Segment and the satellite. The COM codes are received messages from the OBC and are transmitted to the Ground Segment. Furthermore, the COM decodes the received RF messages from the Ground Segment and transmits them to the OBC.
+\item Attitude Determination and Control System [ADCS] determines and controls the altitude of the satellite.
+\item Auxiliary Electronics [AUX] subsystems control the deploying mechanisms and monitor the solar arrays. The Aux subsystem also contains the rigid backplane of the satellite; therefore, it also connects the subsystems.
 \item Structure [STRU]
 \item Ground Support Equipment [EGSE]
 \end{itemize}
@@ -301,11 +299,11 @@ In the case of our satellite, the detection of $\gamma$ photons from GRBs will b
 \begin{figure}[H]
 \centering
 \includegraphics[width=130.0mm]{images/scint_on_sate.png}
-\caption{Side extensions including of the CAMELOT satellite (left, Courtesy of C3S LLC) where scintillators are placed and and a wrapped scintillator with the MPPC read out (right) \cite{kento}}
+\caption{Side extensions including the CAMELOT satellite (left, Courtesy of C3S LLC) where scintillators are placed and a wrapped scintillator with the MPPC read out (right) \cite{kento}}
 \label{fig:scints}
 \end{figure}
 
-The large area and small thickness of the scintillator makes it challenging for the read out as optical photons have to be reflected several times to reach the MPPC. Two factors play role here, the self absorption of the reflectivity of the tape that is used to cover the scintillator. The length of the self absoprtion is in the order of a meter and the reflectivity of the ESR tape, which is above 99 \% can be seen in fig. \ref{fig:refl}. The idea that we came is using two MPPC-s with coincidence. This results in a smaller leakage current (noise) as the noise has a poissonian statistic. Therefore the noise is "random" and the chance of a trigger from both of the MPPC has a very low chance. The other advantage is the incread photon yield due to the double of the photon collection area. The difference between one and two channel readout can be seen in fig. \ref{fig:spectra}.
+The large area and small thickness of the scintillator makes it challenging for the read out as optical photons have to be reflected several times to reach the MPPC. Two factors play role here, the self absorption of the reflectivity of the tape that is used to cover the scintillator. The length of the self absorption is in the order of a meter and the reflectivity of the ESR tape, which is above 99 \% can be seen in fig. \ref{fig:refl}. The idea that we came up is using two MPPC-s with coincidence. This results in a smaller leakage current (noise) as the noise has a poissonian statistic. Therefore the noise is "random" and the chance of a trigger from both of the MPPC has a very low chance. The other advantage is the incread photon yield due to the double of the photon collection area. The difference between one and two channel readout can be seen in fig. \ref{fig:spectra}.
 
 \begin{figure}[H]
 \centering
@@ -317,9 +315,9 @@ The large area and small thickness of the scintillator makes it challenging for 
 
 \subsection{The Geant4 platform}
 
-The most used software in particle physics are MCNPX, FLUKA and Geant4. For this thesis Geant4 was chosen as it is the best for simulation of several types of particles at the same time and building up the geometry of detectors is most propably is the most convinient in the software. 
+The most used software in particle physics are MCNPX, FLUKA and Geant4. For this thesis Geant4 was chosen as it is the best for simulation of several types of particles at the same time and building up the geometry of detectors is most propably is the most convinient in this software. 
 
-Geant4 \cite{geant1, geant2, geant3} (for GEometry ANd Tracking) is a platform for "the simulation of the passage of particles through matter," using the Monte Carlo method. It has been developed at CERN for more than three decades by dozens of physicst and programmers. The cross sections for all interactions between matter and particles are included in this software. It is an object orianted programming platform in C++. Its development, maintenance and user support are taken care by the international Geant4 Collaboration. Areas in science that has used Geant4 are vary wide from the design of complex medical machines to accelerator, nuclear physics, hight energy physics and space applications. Several thousand people use it all around the globe.
+Geant4 \cite{geant1, geant2, geant3} (for GEometry ANd Tracking) is a platform for "the simulation of the passage of particles through matter," using the Monte Carlo method. It has been developed at CERN for more than three decades by dozens of physicst and programmers. The cross sections for all interactions between matter and particles are included in this software. It is an object orianted programming platform in C++. Its development, maintenance and user support are taken care by the international Geant4 Collaboration. Areas in science that has used Geant4 are vary widely from the design of complex medical machines to accelerator, nuclear physics, high energy physics and space applications. Several thousand people use it all around the globe.
 
 \begin{figure}[H]
 \centering
@@ -331,7 +329,7 @@ The Geant4 platform includes all the important features required in the full sim
 
 \subsection{The experimental setup}
 
-In order to understand and charaterize the behaviour of the large-area CsI(Tl) scintillator detector and the MPPC readout an experimental setup was built in Hiroshima, Japan. The experimental setup provided vital information for the simulation, mostly for the position dependence of the light yield. Different $\gamma$ source were used, mostly an $^{241}$Am source. 
+In order to understand and charaterize the behaviour of the large-area CsI(Tl) scintillator detector and the MPPC readout; an experimental setup was built in Hiroshima, Japan. The experimental setup provided vital information for the simulation, mostly for the position dependence of the light yield. Different $\gamma$ source were used, mostly an $^{241}$Am source. 
 
 \begin{figure}[htbp]
  \centering % \begin{center}/\end{center} takes some additional vertical space
@@ -343,7 +341,7 @@ In order to understand and charaterize the behaviour of the large-area CsI(Tl) s
  \caption{\label{fig:i} The scintillator on the left and the cage holding the setup on the right \cite{kento}}
  \end{figure}
 
-The detector was wrapped in a so called ESR foil that is designed to reflect as much light as possible. In fig. \ref{fig:refl} the reflectivity of this tape can be seen depending on the wavelenght of the photons, exceeding 99 \% for most of the wavelengths. It is important as the optical photons have to be reflected several times in order to be read out with the small effective are of the MPPC. This reflectivity was included in the simulation.
+The detector was wrapped in a so called ESR foil that is designed to reflect as much light as possible. In fig. \ref{fig:refl} the reflectivity of this tape can be seen depending on the wavelength of the photons, exceeding 99 \% for most of the relevant spectrum. It is important as the optical photons have to be reflected several times in order to be read out with the small effective are of the MPPC. This reflectivity was included in the simulation.
 
 
 \begin{figure}[H]
@@ -353,7 +351,7 @@ The detector was wrapped in a so called ESR foil that is designed to reflect as 
 \label{fig:refl}
 \end{figure}
 
-The CsI(Tl) scintillator used is produced by AmCrys \cite{scinti}. The dimension of this detector are 150 mm x 75 mm x 5 mm, the largest possible size that can fit onto the surface of the detector. The spectra of the optical photons produced in the scintillation process can be seen in fig. \ref{fig:scint_yield}. An aluminium case of 2mm is used, the same as planned for the mission in space. The time constant for the scintillation of the detector was 200 ns.
+The CsI(Tl) scintillator used is produced by AmCrys \cite{scinti}. The dimension of this detector are 150 mm x 75 mm x 5 mm, the largest possible size that can fit onto the surface of the satellite. The spectra of the optical photons produced in the scintillation process can be seen in fig. \ref{fig:scint_yield}. An aluminium case of 2mm is used, the same as planned for the mission in space. The time constant for the scintillation of the detector was 200 ns.
 
 \begin{table}[h!]
 \begin{center}
@@ -390,7 +388,7 @@ The MPPC chosen for this satellite is one of the latest models (HAMAMATSU S13360
 
 The response of the MPPC detector used depends on temperature. Therefore the experimental setup was placed in a thermostatically controlled chamber (ESPEC LU-113) keeping the temperature at 25$^{\circ}$. Two setups were investigated. The first one with a single MPPC readout placed in the middle of one side of the scintillator. In the other case two MPPCs were utilized symmetrically placed on one side of the detector.
 
-For the single MPPC readout setup a commercial charge-sensitive preamplifier (CLEAR-PULSE 5028), a shaping amplifier (EG\&G ORTEC 571), and an ADC (AMPTEC MCA800A) were used to obtain an electric signal read out by a PC. The shaping times was set to 1 $\mu$s.
+For the single MPPC readout setup a commercial charge-sensitive preamplifier (CLEAR-PULSE 5028), a shaping amplifier (EG\&G ORTEC 571), and an ADC (AMPTEC MCA800A) were used to obtain an electric signal read out by a PC. The shaping time was set to 1 $\mu$s.
 
 \begin{figure}
 \begin{center}
@@ -438,7 +436,7 @@ $$\Theta = 2 \pi (1-cos(\theta)) = 1.234 sr$$
 
 \subsection{2 channel read out setup}
 
-In order to maximize the light yield, thus the signal of the detector and minimize the noise with coincidence a 2 channel setup was tested.  In fig. \ref{fig:schem2c} this setup can be seen with the MPPCs placed symmetrically to the scintillator.
+In order to maximize the light yield, thus the signal of the detector and minimize the noise with coincidence a 2 channel setup was tested.  In fig. \ref{fig:schem2c} this setup can be seen with the MPPCs placed symmetrically onto the scintillator.
 
 \begin{figure}[h!]
 \centering
@@ -737,7 +735,7 @@ SPENVIS is ESA's SPace ENVironment Information System, a WWW interface to models
 %'IFlux','cm^-2 s^-1','Integral Flux'
 %'DFlux','cm^-2 s^-1 MeV^-1','Differential Flux'
 
-The AE-8 model was used in SPENVIS to obtain the spatially avaraged elextron energy spectra for an altitude of 500 km both for solar minimum and maximum. The inclination of the orbit was chosen to be 89 $^{\circ}$. %At the moment hadron resonances are not taken into account in the simulation.
+The AE-8 model was used in SPENVIS to obtain the spatially avaraged elextron energy spectra for an altitude of 500 km both for solar minimum and maximum. The inclination of the orbit was chosen to be 89$^{\circ}$. %At the moment hadron resonances are not taken into account in the simulation.
 
 \begin{figure}[htbp]
  \centering % \begin{center}/\end{center} takes some additional vertical space
@@ -774,17 +772,17 @@ The total flux from the spectrum taken from SPENVIS (fig. \ref{fig:electrs}) for
 
 \section{Conclusion}
 
-In order to simulate how the Camelot CubeSat would interact with the cosmic background and how sensitive it would be to GRBs that it is designed to investigate a Geant4 simulation was built.
+A Geant4 Monte-Carlo based simulation was developed in order to understand how the CAMELOT CubeSat would detect $\gamma$-rays originating from short GRBs. The effect of solar and cosmic electrons on the satellite was also investigated with the simulation.
 
-As the first step, the experimental setup that was used to test the CsI(Tl) scintillator -- the particle detector of the satellite -- was implemented in Geant4. The optical parameters of the simulation were fine tuned by comparing the light yield of the MPPCs that was used to read out the scintillator. After the calibration, the results of the simulation was capable of predicting the signal that would be measured in space.
+As the first step, the experimental setup that was used to test the CsI(Tl) scintillator -- the particle detector of the satellite -- was implemented in Geant4. The optical parameters of the simulation were fine tuned by comparing the light yield of the MPPCs in the simulation with experimental data. After the calibration, the results of the simulation was capable of predicting the signal that would be measured in space.
 
-Secondly, the complex CAD model of the satellite --consisting of 7 modules, each with a give avarage material composition-- was exported to Geant4. The scintillator and its read out was placed on the side of the satellite.
+Secondly, the complex CAD model of the satellite --consisting of 7 modules, each with a given avarage material composition-- was exported to Geant4. The scintillator and its read out was placed on the side of the satellite.
 
-Thirdly, the $\gamma$ absorption of the satellite was invastigated. Parallel $\gamma$-rays with a flux and energy distribution of GRB 9900123 (fig. \ref{fig:grb_band}) was simulated. 36 positions were investigated by varying the incident angle of the $\gamma$s around the major axis of the satellite.
+Thirdly, the $\gamma$ absorption of the satellite was invastigated. Parallel $\gamma$-rays with the energy distribution of GRB 9900123 (fig. \ref{fig:grb_band}) was simulated. 36 positions were investigated by varying the incident angle of the $\gamma$s around the major axis of the satellite.
 
-Fourthly, the effect of cosmic radiation was invastigated by utilizing the energy spectra of cosmic electrons at the altitude of 500km. The satellite was radiated by these particles in Geant4 in the same positions that were used for the $\gamma$-rays of GRB 9900123. The induced signal of these particles was determined, which is about one order of magnitude lower then the signal of a GRB. This needs to be minimalized as it "competes" with the signal of gamma particles from GRBs.
+Fourthly, the effect of cosmic radiation was invastigated by utilizing the energy spectra of cosmic electrons at an altitude of 500km. The satellite was radiated by these particles in Geant4 in the same positions that were used for the $\gamma$-rays of GRB 9900123. The induced signal of these particles was determined, which is about one order of magnitude lower than the signal of a GRB. This signal of electrons needs to be minimalized as it "competes" with the signal of gamma particles from GRBs.
 
-The results of the simulation of the full satellite shows that the satellite is clearly capable of detecting a GRB with a high signal to noise ratio. The effect of absorption can reduce the light yield by 60 \%. The effect of the electron background was also quantified. It is negligable with comparison to the signal induced by the $\gamma$ of the GRBs. 
+The results of the simulation shows that the satellite is clearly capable of detecting a GRB with a high signal to noise ratio. The effect of absorption can reduce the measured light yield by 60 \%. The effect of the electron background was also quantified. It is an order of magnitude lower to the signal induced by the $\gamma$-rays of a GRB. 
 
 \pagebreak
 
